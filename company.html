@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Sora:wght@600;700&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#353434",
+                        "inverse-primary": "#5d5f5f",
+                        "on-primary-fixed": "#1a1c1c",
+                        "surface-container-high": "#2a2a2a",
+                        "tertiary-container": "#e2e2e2",
+                        "on-background": "#e5e2e1",
+                        "secondary-fixed": "#e5e2e1",
+                        "primary-fixed": "#e2e2e2",
+                        "error": "#ffb4ab",
+                        "surface-dim": "#141313",
+                        "on-error-container": "#ffdad6",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#474746",
+                        "on-primary-container": "#1a1c1c",
+                        "on-secondary": "#313030",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "tertiary": "#ffffff",
+                        "on-surface-variant": "#c4c7c8",
+                        "primary": "#ffffff",
+                        "background": "#141313",
+                        "inverse-on-surface": "#313030",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary": "#c8c6c5",
+                        "surface-tint": "#c6c6c7",
+                        "surface-bright": "#3a3939",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary-fixed-variant": "#454747",
+                        "on-tertiary-container": "#636565",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "outline": "#8e9192",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "secondary-container": "#474746",
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-container-highest": "#353434",
+                        "on-primary": "#1a1c1c",
+                        "error-container": "#93000a",
+                        "on-tertiary": "#1a1c1c",
+                        "on-secondary-container": "#b7b5b4",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "on-surface": "#e5e2e1",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-container": "#201f1f",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "surface": "#141313",
+                        "primary-container": "#ffffff",
+                        "outline-variant": "#444748"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1200px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "section-gap": "128px",
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "stack-sm": "8px",
+                        "stack-md": "24px",
+                        "stack-lg": "48px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Sora"],
+                        "headline-md": ["Sora"],
+                        "display": ["Sora"],
+                        "body-md": ["Sora"],
+                        "headline-lg": ["Sora"],
+                        "body-lg": ["Sora"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(20, 19, 19, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.02;
+            pointer-events: none;
+        }
+
+        .white-glow {
+            box-shadow: 0 0 20px 2px rgba(255, 255, 255, 0.1);
+        }
+
+        .monochrome-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #e5e2e1 50%, #ffffff 100%);
+        }
+
+        .silver-stroke {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            background-color: #141313;
+            color: #e5e2e1;
+        }
+    </style>
+</head>
+
+<body class="font-body-md selection:bg-primary/30">
+    <!-- TopAppBar -->
+    <header class="fixed top-0 left-0 w-full z-50 backdrop-blur-xl border-b border-outline-variant/20 bg-black/80">
+        <nav class="max-w-[1400px] mx-auto flex justify-between items-center px-10 py-6">
+            <div class="flex w-full items-center justify-between">
+                <!-- Left: Logo -->
+                <div class="flex-none">
+                    <a class="font-display text-2xl font-bold tracking-tight text-white" href="index.html">VayuTag</a>
+                </div>
+
+                <!-- Center: Nav Links -->
+                <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-12">
+                    <a class="text-white hover:opacity-70 transition-opacity font-display font-bold text-xs tracking-widest uppercase"
+                        href="shopcards.html">SHOP CARD</a>
+                    <a class="text-white hover:opacity-70 transition-opacity font-display font-bold text-xs tracking-widest uppercase"
+                        href="digitalprofile.html">DIGITAL PROFILE</a>
+                    <a class="text-white hover:opacity-70 transition-opacity font-display font-bold text-xs tracking-widest uppercase border-b border-white pb-1"
+                        href="company.html">COMPANY</a>
+                    <a class="text-white hover:opacity-70 transition-opacity font-display font-bold text-xs tracking-widest uppercase"
+                        href="contactus.html">CONTACT US</a>
+                </div>
+
+                <!-- Right: Actions -->
+                <div class="flex items-center gap-8">
+                    <a href="cart.html"
+                        class="flex items-center justify-center w-10 h-10 rounded-full bg-white text-black hover:bg-white/90 transition-colors">
+                        <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+                    </a>
+                    <a class="text-white hover:opacity-70 transition-opacity font-display font-bold text-xs tracking-widest"
+                        href="#">LOGIN</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="pt-32 pb-section-gap">
+        <!-- Hero Section -->
+        <section class="px-gutter max-w-container-max mx-auto mb-section-gap">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
+                <div class="space-y-stack-md">
+                    <span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Enterprise
+                        Solutions</span>
+                    <h1 class="font-display text-display leading-tight">Unified Identity for the Global Workforce.</h1>
+                    <p class="text-body-lg text-on-surface-variant max-w-xl">VayuTag Enterprise bridges the gap between
+                        digital security and physical prestige. Deploy encrypted NFC networking at scale with full
+                        administrative oversight.</p>
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <button
+                            class="monochrome-gradient text-on-primary px-8 py-4 rounded-lg font-label-caps text-label-caps white-glow hover:scale-[1.02] transition-transform">Request
+                            Pilot</button>
+                        <button
+                            class="silver-stroke text-on-surface px-8 py-4 rounded-lg font-label-caps text-label-caps hover:bg-surface-bright/20 transition-colors">View
+                            Security Whitepaper</button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute -inset-10 bg-primary/5 blur-[100px] rounded-full"></div>
+                    <img alt="Enterprise Networking"
+                        class="rounded-xl silver-stroke shadow-2xl relative z-10 w-full aspect-video object-cover"
+                        data-alt="A cinematic, high-contrast photograph of diverse corporate professionals in a sleek, glass-walled boardroom. They are networking with confidence, using gold-trimmed NFC cards. The lighting is low and atmospheric with golden highlights reflecting off premium surfaces, embodying a luxury Obsidian Noir aesthetic with sharp focus and professional mood."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVp4wlYPZkdDjC9pG8R7qFQc1HFLJ3P8Ov_1ueKm-ypL0IdnEiwNxB2Ou2PUuUqHF7PlLhFa6xYVGaBypSkxMCC1Jc9mGU7JREVG5QCLatbK7E-dr2vZ69sJgOT-jf-GA68xoVaNiHG4ug6t_Z1j6LnycJfr3ykFem0Po2m1KySeHOMJfal3LhopgMy590p9H0I7vT4oHj9VC7OYPIXLCYVo_qoIamDkll0TrRvV7BsPOjYh3OYEBI2KmgGbCBEPGKZ4PLdhl59KI">
+                </div>
+            </div>
+        </section>
+        <!-- Bento Grid -->
+        <section class="px-gutter max-w-container-max mx-auto mb-section-gap">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                <!-- Team Management -->
+                <div class="glass-card md:col-span-2 rounded-xl p-stack-lg flex flex-col justify-between min-h-[400px]">
+                    <div class="space-y-stack-sm">
+                        <div class="flex items-center gap-3 text-primary mb-4">
+                            <span class="material-symbols-outlined" data-icon="groups">groups</span>
+                            <span class="font-label-caps text-label-caps uppercase">Team Management</span>
+                        </div>
+                        <h2 class="font-headline-lg">Centralized Command.</h2>
+                        <p class="text-on-surface-variant max-w-md">Provision, update, or revoke access for thousands of
+                            employees in seconds. Our dashboard provides real-time engagement analytics across your
+                            entire organization.</p>
+                    </div>
+                    <div class="mt-stack-lg silver-stroke rounded-lg p-4 bg-surface-container-low/50">
+                        <div class="flex items-center justify-between border-b border-outline-variant/20 pb-4 mb-4">
+                            <span class="font-label-caps text-label-caps">Active Nodes</span>
+                            <span class="text-primary font-bold">1,248</span>
+                        </div>
+                        <div class="grid grid-cols-4 gap-2">
+                            <div class="h-1 bg-primary rounded-full"></div>
+                            <div class="h-1 bg-primary rounded-full"></div>
+                            <div class="h-1 bg-primary/30 rounded-full"></div>
+                            <div class="h-1 bg-primary/30 rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Brand Control -->
+                <div class="glass-card rounded-xl p-stack-lg flex flex-col items-center text-center">
+                    <div
+                        class="flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6 silver-stroke">
+                        <span class="material-symbols-outlined text-primary" data-icon="palette">palette</span>
+                    </div>
+                    <h3 class="font-headline-md mb-4">Brand Control</h3>
+                    <p class="text-on-surface-variant text-body-md mb-8">Maintain aesthetic integrity with uniform
+                        templates that lock corporate identity while allowing personal expression.</p>
+                    <div class="w-full bg-gradient-to-b from-surface-bright to-transparent p-[1px] rounded-lg">
+                        <div class="bg-surface-container-lowest p-4 rounded-lg text-left">
+                            <div class="flex gap-2 mb-3">
+                                <div class="w-3 h-3 rounded-full bg-primary"></div>
+                                <div class="w-3 h-3 rounded-full bg-secondary"></div>
+                            </div>
+                            <div class="h-2 w-3/4 bg-outline-variant/30 rounded mb-2"></div>
+                            <div class="h-2 w-1/2 bg-outline-variant/20 rounded"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Security Section -->
+        <section class="bg-surface-container-lowest py-section-gap relative overflow-hidden">
+            <div
+                class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03),transparent)] pointer-events-none">
+            </div>
+            <div
+                class="px-gutter max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="relative group">
+                        <div
+                            class="absolute -inset-2 bg-gradient-to-r from-primary/10 to-transparent blur-xl opacity-30">
+                        </div>
+                        <img alt="Advanced Security"
+                            class="rounded-xl silver-stroke relative z-10 w-full aspect-square object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHUlE4htXNcxf1GCLm_JWbiDE0fPjIJb7Cl3e99n7NjEAReOEfAP4WXv39ys7yIGsS_TZT_MiS1MhDj4tubrIl-18iWffXCCTCKSldg0_pgiQDo7iss6eXWLC_WHaRyOYQkIJDf34mbgrDjW-k-ijaODQbP5oCpuqMXfLBUnJaF8DSQCct5zIZ3JM0YaFnZFOM8RC_phB5mHmyoEwA0fNtadBPiIX6QtDh-zeFr4XEUU1nDaaAbSyZTG0nAr2sjEHNVTMfUbnP_T8">
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2 space-y-stack-md">
+                    <span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Security &amp;
+                        Privacy</span>
+                    <h2 class="font-display text-headline-lg">Zero Trust. Total Privacy.</h2>
+                    <p class="text-body-lg text-on-surface-variant">Every VayuTag interaction is secured by
+                        military-grade AES-256 encryption. We never track location data, and our enterprise-level
+                        architecture ensures that your employee data remains siloed and sovereign.</p>
+                    <ul class="space-y-4 pt-6">
+                        <li class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-primary mt-1"
+                                data-icon="lock_open">lock_open</span>
+                            <div>
+                                <h4 class="font-bold text-on-surface">End-to-End Encryption</h4>
+                                <p class="text-on-surface-variant text-body-md">Data is encrypted from the physical chip
+                                    to the cloud storage layer.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-primary mt-1"
+                                data-icon="verified_user">verified_user</span>
+                            <div>
+                                <h4 class="font-bold text-on-surface">GDPR &amp; SOC2 Compliant</h4>
+                                <p class="text-on-surface-variant text-body-md">Our infrastructure meets the world's
+                                    most stringent privacy standards.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!DOCTYPE html>
+        <html class="dark" lang="en">
+
+        <head>
+            <meta charset="utf-8">
+            <meta content="width=device-width, initial-scale=1.0" name="viewport">
+            <title>About VayuTag | Obsidian Prime</title>
+            <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+            <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&amp;display=swap" rel="stylesheet">
+            <link
+                href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+                rel="stylesheet">
+            <link
+                href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+                rel="stylesheet">
+            <style>
+                body {
+                    background-color: #000000;
+                    color: #e5e2e1;
+                    font-family: 'Sora', sans-serif;
+                    -webkit-font-smoothing: antialiased;
+                }
+
+                .glass-card {
+                    background: rgba(5, 5, 5, 0.6);
+                    backdrop-filter: blur(40px);
+                    border: 1px solid rgba(26, 26, 26, 1);
+                }
+
+                .hero-gradient {
+                    background: radial-gradient(circle at center, rgba(45, 45, 45, 0.15) 0%, rgba(0, 0, 0, 1) 70%);
+                }
+
+                .material-symbols-outlined {
+                    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+                }
+            </style>
+            <script id="tailwind-config">
+                tailwind.config = {
+                    darkMode: "class",
+                    theme: {
+                        extend: {
+                            "colors": {
+                                "error-container": "#93000a",
+                                "tertiary": "#ffffff",
+                                "surface-container-lowest": "#0e0e0e",
+                                "surface-container": "#201f1f",
+                                "secondary-container": "#474746",
+                                "tertiary-fixed-dim": "#c6c6c7",
+                                "on-secondary": "#313030",
+                                "on-surface": "#e5e2e1",
+                                "surface-container-highest": "#353434",
+                                "surface-container-high": "#2a2a2a",
+                                "outline-variant": "#444748",
+                                "on-primary-fixed-variant": "#454747",
+                                "background": "#141313",
+                                "tertiary-container": "#e2e2e2",
+                                "on-secondary-fixed-variant": "#474746",
+                                "secondary": "#c8c6c5",
+                                "primary-fixed": "#e2e2e2",
+                                "on-primary": "#2f3131",
+                                "on-surface-variant": "#c4c7c8",
+                                "on-error-container": "#ffdad6",
+                                "surface-dim": "#141313",
+                                "outline": "#8e9192",
+                                "inverse-on-surface": "#313030",
+                                "secondary-fixed": "#e5e2e1",
+                                "surface-tint": "#c6c6c7",
+                                "on-secondary-fixed": "#1c1b1b",
+                                "surface-container-low": "#1c1b1b",
+                                "error": "#ffb4ab",
+                                "on-tertiary-fixed-variant": "#454747",
+                                "on-background": "#e5e2e1",
+                                "tertiary-fixed": "#e2e2e2",
+                                "secondary-fixed-dim": "#c8c6c5",
+                                "surface": "#141313",
+                                "on-error": "#690005",
+                                "primary-container": "#e2e2e2",
+                                "surface-variant": "#353434",
+                                "surface-bright": "#3a3939",
+                                "primary-fixed-dim": "#c6c6c7",
+                                "on-primary-container": "#636565",
+                                "primary": "#ffffff",
+                                "on-primary-fixed": "#1a1c1c",
+                                "inverse-surface": "#e5e2e1",
+                                "on-tertiary-container": "#636565",
+                                "on-secondary-container": "#b7b5b4",
+                                "on-tertiary-fixed": "#1a1c1c",
+                                "on-tertiary": "#2f3131",
+                                "inverse-primary": "#5d5f5f"
+                            },
+                            "borderRadius": {
+                                "DEFAULT": "0.125rem",
+                                "lg": "0.25rem",
+                                "xl": "0.5rem",
+                                "full": "0.75rem"
+                            },
+                            "spacing": {
+                                "margin-desktop": "64px",
+                                "unit": "8px",
+                                "section-gap": "128px",
+                                "gutter": "24px",
+                                "margin-mobile": "20px",
+                                "container-max-width": "1200px"
+                            },
+                            "fontFamily": {
+                                "label-sm": ["Sora"],
+                                "body-md": ["Sora"],
+                                "body-lg": ["Sora"],
+                                "headline-lg": ["Sora"],
+                                "label-md": ["Sora"],
+                                "headline-lg-mobile": ["Sora"],
+                                "display-sm": ["Sora"],
+                                "display-lg": ["Sora"]
+                            }
+                        },
+                    },
+                }
+            </script>
+        </head>
+
+        <body class="bg-surface text-on-surface">
+            <!-- Top Navigation Bar -->
+
+            <main class="pt-24 overflow-x-hidden">
+                <!-- Hero Section -->
+                <section
+                    class="relative min-h-[921px] flex flex-col items-center justify-center text-center px-gutter hero-gradient">
+                    <div class="max-w-4xl space-y-8">
+                        <h1 class="font-display-lg text-display-lg leading-tight tracking-tighter">Redefining The Future
+                            Of
+                            <span class="text-outline">Professional Networking.</span>
+                        </h1>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">VayuTag merges
+                            high-end
+                            hardware with seamless digital intelligence to create the world’s most sophisticated
+                            identity
+                            ecosystem for elite professionals.</p>
+                        <div class="pt-8">
+                            <button
+                                class="bg-primary text-on-primary px-10 py-4 rounded-full font-label-md text-label-md hover:scale-105 transition-transform">Explore
+                                The Identity</button>
+                        </div>
+                    </div>
+                    <div
+                        class="mt-24 w-full max-w-6xl aspect-video relative overflow-hidden rounded-xl border border-outline-variant/30">
+                        <img class="w-full h-full object-cover"
+                            data-alt="A cinematic, low-angle shot of a high-tech minimalist office lobby at night, featuring cold blue and white ambient lighting reflecting off polished black obsidian floors. In the center, a sleek glass pedestal holds a single, glowing white VayuTag smart card. The aesthetic is ultra-modern and luxurious, with deep shadows and sharp architectural lines echoing a premium tech brand."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUqlfbJvc_oY77i3tLqYY5eUZk1Zv88IJAAkkvp8erZntmb5QW5gIg9X_JWs1cou4PN5ZL0vFGeL8YRvw4jDifB083DstxNENgdVU5k5S8kb5swiwQPjPXgnAsOKSRIaJNAdXbogWef9gpj1gFelLKp9LkiSWXRgT3a5Dk2h64brCc0mooTvfRmx-esD_RvRvxyuvSlY14H6Qf9Fh-pvLO2dBa3RGpSFEMPoqIP-hRUKjCdDNLYYqMm7VOg3RRGic9kD9kwa9g0Dk">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                    </div>
+                </section>
+                <!-- Mission & Values (Bento Grid) -->
+                <section class="py-section-gap px-gutter max-w-container-max mx-auto">
+                    <div class="mb-16">
+                        <p class="text-primary font-label-md text-label-md uppercase tracking-widest mb-4">Our Vision
+                        </p>
+                        <h2 class="font-display-sm text-display-sm">The 5 Pillars of VayuTag</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-6 gap-6">
+                        <!-- Instant -->
+                        <div
+                            class="md:col-span-2 glass-card p-10 rounded-xl space-y-4 hover:border-primary/50 transition-colors">
+                            <span class="material-symbols-outlined text-primary text-4xl">bolt</span>
+                            <h3 class="font-display-sm text-display-sm">Instant</h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant">Tap-to-connect technology that
+                                bridges
+                                the physical and digital world in milliseconds.</p>
+                        </div>
+                        <!-- Interactive -->
+                        <div
+                            class="md:col-span-4 glass-card p-10 rounded-xl space-y-4 hover:border-primary/50 transition-colors relative overflow-hidden">
+                            <div class="relative z-10">
+                                <span class="material-symbols-outlined text-primary text-4xl">dynamic_form</span>
+                                <h3 class="font-display-sm text-display-sm">Interactive</h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant max-w-md">Your profile is a
+                                    living
+                                    document. Update your details, links, and portfolio in real-time without ever
+                                    needing a new
+                                    card.</p>
+                            </div>
+                            <div class="absolute right-0 top-0 h-full w-1/3 opacity-20 pointer-events-none">
+                                <img class="w-full h-full object-cover"
+                                    data-alt="Abstract white light trails flowing across a pitch-black background, symbolizing the rapid transfer of digital data. The style is minimalist and high-contrast, perfectly aligning with a dark-mode luxury aesthetic. The lighting is crisp and energetic, suggesting speed and modern connectivity."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqdwOFN7Cz_tPVulcABiTCGV0NsTG7j7XAaZ4cR4Yy0EABU-ZnBD5wyBatwawA9ufTd-uFZ7f_RL48rO7ZzjXyWbczdYP2ozRrjJI-yZXTiK7fQkgCyTl6IBIRGjUgnPPIUghKrzvGVMUmUj9SGDV77Fnhn0mdpVdpuSLf-hdnJItOlZPKI-RP6a_eRWYu_1bhpiqLrLRPA-IuK71LyXlOsJmJ16xxfckDTyk_RZ1_DGZ-H0jQVRKmmbus8dpufkLPYyg36HbVQ7o">
+                            </div>
+                        </div>
+                        <!-- Sustainable -->
+                        <div
+                            class="md:col-span-3 glass-card p-10 rounded-xl space-y-4 hover:border-primary/50 transition-colors">
+                            <span class="material-symbols-outlined text-primary text-4xl">eco</span>
+                            <h3 class="font-display-sm text-display-sm">Sustainable</h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant">One card for a lifetime. We are
+                                eliminating the billions of paper cards that end up in landfills every year.</p>
+                        </div>
+                        <!-- Elegant -->
+                        <div
+                            class="md:col-span-3 glass-card p-10 rounded-xl space-y-4 hover:border-primary/50 transition-colors">
+                            <span class="material-symbols-outlined text-primary text-4xl">diamond</span>
+                            <h3 class="font-display-sm text-display-sm">Elegant</h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant">Crafted from premium materials
+                                including aerospace-grade metal and matte obsidian glass.</p>
+                        </div>
+                        <!-- Digital-Era -->
+                        <div
+                            class="md:col-span-6 glass-card p-10 rounded-xl flex flex-col md:flex-row justify-between items-center gap-8 hover:border-primary/50 transition-colors">
+                            <div class="space-y-4">
+                                <span class="material-symbols-outlined text-primary text-4xl">devices_other</span>
+                                <h3 class="font-display-sm text-display-sm">Digital-Era</h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant max-w-xl">Designed for the
+                                    modern
+                                    nomad. Fully compatible with Apple Wallet, Google Pay, and all NFC-enabled devices.
+                                </p>
+                            </div>
+                            <button
+                                class="border border-white/20 text-white px-8 py-3 rounded-full font-label-md text-label-md whitespace-nowrap hover:bg-white hover:text-black transition-all">View
+                                Technology</button>
+                        </div>
+                    </div>
+                </section>
+                <!-- The VayuTag Difference (Split Layout) -->
+                <section class="py-section-gap bg-surface-container-low">
+                    <div
+                        class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+                        <div class="space-y-12">
+                            <h2 class="font-display-sm text-display-sm">What Makes Us <br><span
+                                    class="text-outline">Fundamentally Different.</span></h2>
+                            <div class="space-y-8">
+                                <div class="flex gap-6">
+                                    <div
+                                        class="w-12 h-12 rounded-full border border-primary flex items-center justify-center shrink-0">
+                                        <span class="font-label-md text-primary">01</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-headline-lg text-headline-lg mb-2">Beyond the QR Code</h4>
+                                        <p class="font-body-md text-body-md text-on-surface-variant">While others rely
+                                            on
+                                            fragile stickers or generic codes, VayuTag uses proprietary encrypted NFC
+                                            chips for
+                                            secure, instant handshakes.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-6">
+                                    <div
+                                        class="w-12 h-12 rounded-full border border-primary flex items-center justify-center shrink-0">
+                                        <span class="font-label-md text-primary">02</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-headline-lg text-headline-lg mb-2">Enterprise-Grade Security
+                                        </h4>
+                                        <p class="font-body-md text-body-md text-on-surface-variant">Your data is yours.
+                                            We use
+                                            banking-level encryption to ensure your professional identity is never
+                                            compromised.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -inset-4 border border-white/5 rounded-2xl"></div>
+                            <img class="rounded-xl shadow-2xl relative z-10"
+                                data-alt="A top-down macro photograph of a sleek, black circuit board with glowing white and silver traces, emphasizing precision engineering and advanced technology. The lighting is moody and focused, highlighting the metallic textures and creating a high-end, futuristic atmosphere. The monochromatic palette reinforces the brand's 'quiet luxury' tech identity."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCG3MWtVNjKaAY8VXrxNk8NYBvJCZeyXK8qfs0ywXADuO5oWahv0GLG656lUQdNYxw_Mlqxj8QU4IPUBwiOX3_lyc3GkUJ_XhmTMik6W9Ma6wvmur12rfotkZ6U-tJE8vCXsSPXv6gIgOKL33D-qfqRD--uFfmb6AkT3C28KftbV6UNHEJxAlx8dT44J8ds1_XF8hlsXTomGWNhRAjYMr9TK2nYmA79SXsAquN_31EIkQf4ACJ1erwS931DkBLd6Oc3Ywwe2e2NhvM">
+                        </div>
+                    </div>
+                </section>
+                <!-- Audience Showcase -->
+                <section class="py-section-gap px-gutter max-w-container-max mx-auto">
+                    <div class="text-center mb-24 space-y-4">
+                        <p class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Built
+                            For
+                            Modern Professionals</p>
+                        <h2 class="font-display-sm text-display-sm">Empowering Every Industry</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                        <div class="text-center space-y-6 group">
+                            <div
+                                class="aspect-square overflow-hidden rounded-full border border-outline-variant group-hover:border-primary transition-colors duration-500">
+                                <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                                    data-alt="A stylish, professional portrait of a woman in high-end minimalist fashion, set against a dark architectural backdrop with soft, dramatic rim lighting. The image conveys elegance, status, and professional poise, using a monochromatic color grade to match the Obsidian Prime visual style."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9JCGSDuNGKAo3noh_F2HgYNyAF8sMNZ24zc6TEvjbAPMwyjy2W6mYJAi00-y4EM6HkTgS8G62Az4WbUyNcqXQGotv_zZu_MK4_TWWxaIcEWLs0DHGIgtQu30Q8_VIiFTa68Y3PbW9AxVnAOtYF4RiUj7XVrKYTK-vq3WqGL54u7gCQCDCVuNfGA5xoBhQJcWwTf-bD5Qm7cXvUBSFBwFfEJx12RrIHTehHKjIjus2P9uWRSr6gxhofPvSuONTuXNKfm39w0yVWzc">
+                            </div>
+                            <h5 class="font-headline-lg text-headline-lg">Entrepreneurs</h5>
+                            <p class="font-body-md text-body-md text-on-surface-variant">Closing deals with a single
+                                touch, from
+                                high-stakes boardrooms to casual mixers.</p>
+                        </div>
+                        <div class="text-center space-y-6 group">
+                            <div
+                                class="aspect-square overflow-hidden rounded-full border border-outline-variant group-hover:border-primary transition-colors duration-500">
+                                <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                                    data-alt="A black and white group shot of creative professionals collaborating in a modern studio space with large windows and industrial features. The lighting is bright yet high-contrast, focusing on the dynamic interaction and the sophisticated atmosphere of a high-tier creative agency. The vibe is minimal, productive, and premium."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy8NMb5tdB1sxHwV9DuVZ7xiiKJeOmJsG4C3X_MOWUibyKfaENUiIhvmea7u3urtLM4MAW9RzELFQDTa0NCSlhWa-Mfz4nX_8fDeTB7QzN1me3X_3ZQ71hqt05zhXqQvF9YseU6vHjiBFbRnMqsAvRlEIzhz01RHM4oDSaPASy_VpTu6yKmbymb3FOK35Hy2LjSwGnKvyAFk0JKUo3A5ceRqOqcEWxhWqMg10ljFN0ECjiTmfJq9DTo9Su2I6GfFkva6gphd63Iuw">
+                            </div>
+                            <h5 class="font-headline-lg text-headline-lg">Creators</h5>
+                            <p class="font-body-md text-body-md text-on-surface-variant">Directing traffic to portfolios
+                                and
+                                social media with frictionless cinematic grace.</p>
+                        </div>
+                        <div class="text-center space-y-6 group">
+                            <div
+                                class="aspect-square overflow-hidden rounded-full border border-outline-variant group-hover:border-primary transition-colors duration-500">
+                                <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                                    data-alt="A close-up shot of a hand holding a sleek black smartphone next to a luxury car's dashboard, with the reflection of city lights on the window. The style is high-end lifestyle photography, emphasizing status, mobility, and the seamless integration of technology into a premium daily life. Dark mode aesthetic with sharp highlights."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-_N-Y8TB6ZGiLhHmE3ax01qkzl84zEOquTGv7R1JNOyHcnUEhRXwqgXJZbAYX7Q2po92MWfxPXMTfq1ago9RgXV8Ayx_pBsqH4Wj4s8Mv6FXVSx4JXPLe86QCYZqLOdLN4jlrdw3O29plsLMC7vdAQId5SKHcq0VH0NYeubgyebEk72AqpP_RrdYgXCUIhpQJF_UkV3_y3Cxb4Zh6P8EF5e63Wa3K8hnrd_mPl5EE1pqye_2rfz25Zd8xXzQm_pYfG8OYCGqctdI">
+                            </div>
+                            <h5 class="font-headline-lg text-headline-lg">Luxury Brands</h5>
+                            <p class="font-body-md text-body-md text-on-surface-variant">Custom bespoke hardware that
+                                matches
+                                the prestige of world-class organizations.</p>
+                        </div>
+                    </div>
+                </section>
+                <!-- Sustainability Section -->
+                <section class="py-section-gap px-gutter">
+                    <div class="max-w-4xl mx-auto glass-card p-16 rounded-3xl text-center space-y-8">
+                        <span class="material-symbols-outlined text-6xl text-primary"
+                            style="font-variation-settings: &quot;FILL&quot; 1;">eco</span>
+                        <h2 class="font-display-sm text-display-sm">Sustainability Matters</h2>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant">Over 10 billion paper business
+                            cards are
+                            printed globally each year. 88% are thrown away within one week. We are here to change the
+                            math. By
+                            choosing VayuTag, you're not just upgrading your network—you're making a conscious choice to
+                            protect
+                            our planet through reusable, digital-first technology.</p>
+                        <div class="flex justify-center gap-12 pt-8 border-t border-outline-variant/30">
+                            <div>
+                                <div class="text-display-sm text-primary">0</div>
+                                <p class="font-label-sm text-label-sm uppercase opacity-60">Waste Produced</p>
+                            </div>
+                            <div>
+                                <div class="text-display-sm text-primary">10B</div>
+                                <p class="font-label-sm text-label-sm uppercase opacity-60">Cards Replaced</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Closing Vision -->
+                <section class="py-section-gap px-gutter text-center">
+                    <div class="max-w-5xl mx-auto space-y-12">
+                        <h2 class="font-display-lg text-display-lg">A Smarter Way To Connect.</h2>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">VayuTag isn't
+                            just a
+                            product; it's a movement toward more meaningful, efficient, and intentional human
+                            connections. The
+                            future is digital, and your identity should be too.</p>
+                        <div class="flex flex-col md:flex-row gap-6 justify-center items-center pt-8">
+                            <button
+                                class="bg-primary text-on-primary px-12 py-5 rounded-full font-label-md text-label-md hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all">Order
+                                Your Card</button>
+                            <button
+                                class="border border-outline-variant text-on-surface px-12 py-5 rounded-full font-label-md text-label-md hover:bg-white/5 transition-all">Contact
+                                Sales</button>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Lead Capture Form -->
+            <section class="px-gutter max-w-container-max mx-auto mt-section-gap">
+                <div class="glass-card rounded-2xl p-gutter md:p-stack-lg border-white/10">
+                    <div class="max-w-2xl mx-auto text-center mb-stack-lg">
+                        <h2 class="font-display text-headline-lg mb-4 text-primary">Schedule a Demo</h2>
+                        <p class="text-on-surface-variant">Discover how VayuTag can transform your organization's
+                            professional networking. Our enterprise consultants will reach out within 24 hours.</p>
+                    </div>
+                    <form class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-gutter">
+                        <div class="space-y-2">
+                            <label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Full
+                                Name</label>
+                            <input
+                                class="w-full bg-surface-container-lowest border-0 border-b border-outline-variant/30 focus:border-primary focus:ring-0 text-on-surface py-3 transition-colors"
+                                placeholder="Alexander Thorne" type="text">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Work
+                                Email</label>
+                            <input
+                                class="w-full bg-surface-container-lowest border-0 border-b border-outline-variant/30 focus:border-primary focus:ring-0 text-on-surface py-3 transition-colors"
+                                placeholder="alex@enterprise.com" type="email">
+                        </div>
+                        <div class="space-y-2">
+                            <label
+                                class="font-label-caps text-label-caps text-on-surface-variant uppercase">Organization</label>
+                            <input
+                                class="w-full bg-surface-container-lowest border-0 border-b border-outline-variant/30 focus:border-primary focus:ring-0 text-on-surface py-3 transition-colors"
+                                placeholder="Global Dynamics" type="text">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Team
+                                Size</label>
+                            <select
+                                class="w-full bg-surface-container-lowest border-0 border-b border-outline-variant/30 focus:border-primary focus:ring-0 text-on-surface py-3 transition-colors">
+                                <option>100 - 500 Employees</option>
+                                <option>500 - 2,000 Employees</option>
+                                <option>2,000+ Employees</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-2 pt-8 text-center">
+                            <button
+                                class="monochrome-gradient text-on-primary px-12 py-4 rounded-lg font-label-caps text-label-caps white-glow hover:scale-[1.02] transition-transform w-full md:w-auto"
+                                type="submit">Confirm Presentation Request</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+    </main>
+    <footer class="bg-surface border-t border-outline-variant/10 pt-section-gap pb-12 px-gutter">
+        <div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 mb-32">
+            <div class="md:col-span-4">
+                <div class="font-display-lg text-headline-lg tracking-tight text-primary mb-6">VayuTag</div>
+                <p class="text-on-surface-variant text-body-md max-w-xs mb-8">Premium NFC networking tools designed for
+                    professionals who demand excellence. Elevate your first impression.</p>
+                <div class="flex gap-6 text-on-surface-variant">
+                    <span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">public</span>
+                    <span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">share</span>
+                    <span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">link</span>
+                </div>
+            </div>
+            <div class="md:col-span-2">
+                <h5 class="text-label-md font-bold text-primary mb-8 uppercase tracking-widest">Explore</h5>
+                <ul class="space-y-4 text-on-surface-variant text-label-md">
+                <li><a class="hover:text-primary" href="shopcards.html">Products</a></li>
+                <li><a class="hover:text-primary" href="company.html">Enterprise</a></li>
+                <li><a class="hover:text-primary" href="shopcards.html">Pricing</a></li>
+                <li><a class="hover:text-primary" href="shopcards.html">Compatibility</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-2">
+                <h5 class="text-label-md font-bold text-primary mb-8 uppercase tracking-widest">Resources</h5>
+                <ul class="space-y-4 text-on-surface-variant text-label-md">
+                <li><a class="hover:text-primary" href="contactus.html">Help Center</a></li>
+                <li><a class="hover:text-primary" href="contactus.html">Contact Support</a></li>
+                <li><a class="hover:text-primary" href="#">Blog</a></li>
+                <li><a class="hover:text-primary" href="#">Dashboard</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-4">
+                <div class="glass-card p-8 rounded-2xl border-white/5">
+                    <h5 class="text-label-md font-bold text-primary mb-2">Stay Updated</h5>
+                    <p class="text-sm text-on-surface-variant mb-6">Get the latest news on product drops and new features.</p>
+                    <div class="flex bg-surface-container rounded-lg p-1 border border-outline-variant/20">
+                        <input class="bg-transparent border-none focus:ring-0 flex-1 px-4 text-sm" placeholder="Email address" type="email">
+                        <button class="bg-primary text-on-primary p-2 rounded-md flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center pt-8 border-t border-outline-variant/10 text-label-sm text-on-surface-variant/60">
+            <div class="mb-4 md:mb-0">© 2024 VayuTag. All rights reserved.</div>
+            <div class="italic hidden md:block">Designed for the future of networking.</div>
+            <div class="flex gap-8">
+                <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+                <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+    <!-- BottomNavBar (Mobile only) -->
+    <nav
+        class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin-mobile py-3 md:hidden bg-surface-container/60 backdrop-blur-2xl border-t border-outline-variant/10 rounded-t-xl">
+        <a class="flex flex-col items-center justify-center text-on-surface-variant font-label-caps text-label-caps"
+            href="index.html">
+            <span class="material-symbols-outlined" data-icon="home">home</span>
+            Home
+        </a>
+        <a class="flex flex-col items-center justify-center text-on-surface-variant font-label-caps text-label-caps"
+            href="shopcards.html">
+            <span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+            Store
+        </a>
+        <a class="flex flex-col items-center justify-center text-primary bg-primary/10 rounded-xl px-4 py-1 font-label-caps text-label-caps scale-90"
+            href="company.html">
+            <span class="material-symbols-outlined" data-icon="business_center">business_center</span>
+            Solutions
+        </a>
+        <a class="flex flex-col items-center justify-center text-on-surface-variant font-label-caps text-label-caps"
+            href="digitalprofile.html">
+            <span class="material-symbols-outlined" data-icon="badge">badge</span>
+            Profile
+        </a>
+    </nav>
+
+
+</body>
+
+</html>
+
+
+</body>
+
+</html>

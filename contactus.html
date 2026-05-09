@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Contact Us | VayuTag</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&amp;display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#e2e2e2",
+                        "background": "#141313",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container-highest": "#353434",
+                        "primary": "#ffffff",
+                        "error": "#ffb4ab",
+                        "secondary-fixed": "#e5e2e1",
+                        "surface-container": "#201f1f",
+                        "on-primary": "#2f3131",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-secondary-container": "#b7b5b4",
+                        "on-error": "#690005",
+                        "error-container": "#93000a",
+                        "on-tertiary-container": "#636565",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary-container": "#474746",
+                        "on-secondary-fixed-variant": "#474746",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "surface-variant": "#353434",
+                        "on-primary-container": "#636565",
+                        "on-background": "#e5e2e1",
+                        "on-primary-fixed-variant": "#454747",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "outline-variant": "#444748",
+                        "inverse-on-surface": "#313030",
+                        "surface": "#141313",
+                        "primary-fixed": "#e2e2e2",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "primary-container": "#e2e2e2",
+                        "on-tertiary": "#2f3131",
+                        "on-primary-fixed": "#1a1c1c",
+                        "on-surface": "#e5e2e1",
+                        "outline": "#8e9192",
+                        "secondary": "#c8c6c5",
+                        "surface-bright": "#3a3939",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-dim": "#141313",
+                        "surface-tint": "#c6c6c7",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-surface-variant": "#c4c7c8",
+                        "on-secondary": "#313030",
+                        "tertiary-fixed": "#e2e2e2",
+                        "tertiary": "#ffffff",
+                        "on-error-container": "#ffdad6",
+                        "inverse-surface": "#e5e2e1",
+                        "inverse-primary": "#5d5f5f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max-width": "1200px",
+                        "unit": "8px",
+                        "section-gap": "128px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Sora"],
+                        "body-md": ["Sora"],
+                        "body-lg": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "label-md": ["Sora"],
+                        "headline-lg-mobile": ["Sora"],
+                        "display-sm": ["Sora"],
+                        "label-sm": ["Sora"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "display-sm": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background: radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 60%), #050505;
+            color: #e5e2e1;
+            font-family: 'Sora', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .noise-bg {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3column%3Efilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.02;
+            pointer-events: none;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-input {
+            background: rgba(5, 5, 5, 0.8);
+            border: none;
+            border-bottom: 1px solid #2C2C2C;
+            border-radius: 0;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            border-bottom-color: #FFFFFF;
+            box-shadow: none;
+            outline: none;
+        }
+
+        .premium-glow {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+
+        @media (max-width: 768px) {
+            .section-gap {
+                margin-top: 64px;
+                margin-bottom: 64px;
+            }
+        }
+    </style>
+</head>
+
+<body class="dark selection:bg-primary selection:text-background">
+    <div class="fixed inset-0 noise-bg z-0"></div>
+    <!-- TopAppBar -->
+    <header class="fixed top-0 left-0 w-full z-50 backdrop-blur-xl border-b border-outline-variant/20 bg-black/80">
+        <nav class="max-w-[1400px] mx-auto flex justify-between items-center px-10 py-6">
+            <div class="flex w-full items-center justify-between">
+                <!-- Left: Logo -->
+                <div class="flex-none">
+                    <a class="font-display text-2xl font-bold tracking-tight text-white" href="index.html">VayuTag</a>
+                </div>
+
+                <!-- Center: Nav Links -->
+                <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-12">
+                    <a class="text-white hover:opacity-70 transition-opacity font-display font-bold text-xs tracking-widest uppercase"
+                        href="shopcards.html">SHOP CARD</a>
+                    <a class="text-white hover:opacity-70 transition-opacity font-display font-bold text-xs tracking-widest uppercase"
+                        href="digitalprofile.html">DIGITAL PROFILE</a>
+                    <a class="text-white hover:opacity-70 transition-opacity font-display font-bold text-xs tracking-widest uppercase"
+                        href="company.html">COMPANY</a>
+                    <a class="text-white hover:opacity-70 transition-opacity font-display font-bold text-xs tracking-widest uppercase border-b border-white pb-1"
+                        href="contactus.html">CONTACT US</a>
+                </div>
+
+                <!-- Right: Actions -->
+                <div class="flex items-center gap-8">
+                    <a href="cart.html"
+                        class="flex items-center justify-center w-10 h-10 rounded-full bg-white text-black hover:bg-white/90 transition-colors">
+                        <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+                    </a>
+                    <a class="text-white hover:opacity-70 transition-opacity font-display font-bold text-xs tracking-widest"
+                        href="#">LOGIN</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="relative z-10 pt-32">
+        <!-- Hero Section -->
+        <section class="max-w-4xl mx-auto text-center px-margin-mobile md:px-margin-desktop mb-24">
+            <h1 class="font-display-lg text-display-sm md:text-display-lg text-primary mb-6">Let’s Start A Conversation.
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Whether you’re looking for high-end digital networking solutions or custom enterprise hardware, our
+                specialists are here to assist your transition to VayuTag.
+            </p>
+        </section>
+        <!-- Info Cards -->
+        <section
+            class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
+            <!-- Email -->
+            <div
+                class="glass-card p-12 flex flex-col items-center text-center rounded-xl group hover:border-primary/30 transition-all duration-500">
+                <div
+                    class="w-16 h-16 rounded-full border border-outline-variant flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-background transition-all">
+                    <span class="material-symbols-outlined text-3xl">mail</span>
+                </div>
+                <h3 class="font-headline-lg text-headline-lg text-primary mb-2">Email</h3>
+                <p class="text-on-surface-variant mb-6 font-body-md">Inquiries &amp; Support</p>
+                <a class="text-primary font-bold tracking-widest text-label-md uppercase"
+                    href="mailto:hello@vayutag.com">hello@vayutag.com</a>
+            </div>
+            <!-- WhatsApp -->
+            <div
+                class="glass-card p-12 flex flex-col items-center text-center rounded-xl group hover:border-primary/30 transition-all duration-500">
+                <div
+                    class="w-16 h-16 rounded-full border border-outline-variant flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-background transition-all">
+                    <span class="material-symbols-outlined text-3xl">chat_bubble</span>
+                </div>
+                <h3 class="font-headline-lg text-headline-lg text-primary mb-2">WhatsApp</h3>
+                <p class="text-on-surface-variant mb-6 font-body-md">Direct Sales Concierge</p>
+                <a class="text-primary font-bold tracking-widest text-label-md uppercase" href="#">+1 (555) VAYU-TAG</a>
+            </div>
+            <!-- Instagram -->
+            <div
+                class="glass-card p-12 flex flex-col items-center text-center rounded-xl group hover:border-primary/30 transition-all duration-500">
+                <div
+                    class="w-16 h-16 rounded-full border border-outline-variant flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-background transition-all">
+                    <span class="material-symbols-outlined text-3xl">camera</span>
+                </div>
+                <h3 class="font-headline-lg text-headline-lg text-primary mb-2">Instagram</h3>
+                <p class="text-on-surface-variant mb-6 font-body-md">Follow Our Journey</p>
+                <a class="text-primary font-bold tracking-widest text-label-md uppercase" href="#">@vayutag_official</a>
+            </div>
+        </section>
+        <!-- Main Form & Mockup -->
+        <section
+            class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-24 items-center mb-32">
+            <div>
+                <h2 class="font-headline-lg text-display-sm text-primary mb-12">Send Us A Message</h2>
+                <form class="space-y-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div class="relative">
+                            <label
+                                class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-2 block">Full
+                                Name</label>
+                            <input class="form-input w-full py-3 text-primary" placeholder="Alexander Sterling"
+                                type="text" />
+                        </div>
+                        <div class="relative">
+                            <label
+                                class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-2 block">Email
+                                Address</label>
+                            <input class="form-input w-full py-3 text-primary" placeholder="alex@vayu.luxury"
+                                type="email" />
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div class="relative">
+                            <label
+                                class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-2 block">Phone</label>
+                            <input class="form-input w-full py-3 text-primary" placeholder="+44 7700 900000"
+                                type="tel" />
+                        </div>
+                        <div class="relative">
+                            <label
+                                class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-2 block">Subject</label>
+                            <input class="form-input w-full py-3 text-primary" placeholder="Enterprise Inquiry"
+                                type="text" />
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <label
+                            class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-2 block">Message</label>
+                        <textarea class="form-input w-full py-3 text-primary resize-none"
+                            placeholder="How can we help refine your digital identity?" rows="4"></textarea>
+                    </div>
+                    <button
+                        class="bg-primary text-background px-12 py-5 rounded-none font-label-md text-label-md font-bold hover:scale-[1.02] transition-all premium-glow active:scale-95">SEND
+                        MESSAGE</button>
+                </form>
+            </div>
+            <div class="relative flex justify-center lg:justify-end">
+                <div class="absolute inset-0 bg-primary/5 blur-[120px] rounded-full"></div>
+                <div
+                    class="relative z-10 w-[300px] h-[600px] bg-black rounded-[3rem] border-[8px] border-[#1A1A1A] overflow-hidden shadow-2xl scale-90 md:scale-100">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-black rounded-b-2xl"></div>
+                    <div class="p-8 h-full flex flex-col items-center justify-center text-center">
+                        <div
+                            class="w-24 h-24 rounded-full bg-surface-container-highest border border-primary/20 mb-6 flex items-center justify-center overflow-hidden">
+                            <img class="w-full h-full object-cover"
+                                data-alt="A professional high-resolution headshot of a sophisticated man with a minimalist aesthetic, set against a dark architectural background. The lighting is dramatic, high-contrast, emphasizing a premium and modern luxury look consistent with obsidian-themed UI design."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDr2YKtWCUDMuQyP_LggQ34cEybmZxCq38VQAMEzl3NT1kkDnQxgmq1ov-SK8wbI8RHkqCUOV-Pv3q4kLjT_WbTU3cdbEXDvjigEQ-o10JYJ39f5RKVfql0S5WaIjNNpQDj08VBi_oR-wmudwjXXHmc_zDkGQZvob8N6q-FXLoRNDRUFoRpAJNslLRONIFGW7A-cMoZsbYHthl5rHY68RzrnJVusRKEAvFH4WFt7U4F_AUMXBKQwerfaHX5rQl-Fmje2lkW2OSG3-w" />
+                        </div>
+                        <div class="text-primary font-headline-lg text-xl mb-1">Julian Thorne</div>
+                        <div class="text-on-surface-variant font-label-sm text-xs tracking-widest uppercase mb-8">Chief
+                            Architect</div>
+                        <div class="space-y-3 w-full">
+                            <div
+                                class="glass-card py-3 rounded-lg text-xs font-bold tracking-widest uppercase border-primary/10">
+                                SAVE CONTACT</div>
+                            <div
+                                class="bg-primary text-background py-3 rounded-lg text-xs font-bold tracking-widest uppercase">
+                                PORTFOLIO</div>
+                            <div
+                                class="glass-card py-3 rounded-lg text-xs font-bold tracking-widest uppercase border-primary/10">
+                                LINKEDIN</div>
+                        </div>
+                        <div class="mt-12 text-[10px] text-on-surface-variant/40 tracking-tighter">Powered by VayuTag
+                            Obsidian NFC</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Corporate Section -->
+        <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-32">
+            <div
+                class="bg-surface-container-low p-12 md:p-20 flex flex-col md:flex-row items-center justify-between border border-outline-variant/10 rounded-xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/5 to-transparent"></div>
+                <div class="relative z-10 max-w-xl">
+                    <h2 class="font-headline-lg text-display-sm text-primary mb-4">Corporate &amp; Bulk Orders</h2>
+                    <p class="font-body-md text-on-surface-variant mb-8">Deploy VayuTag across your entire organization
+                        with custom branding, centralized management, and priority technical support. Our sales team
+                        specializes in multi-national enterprise implementations.</p>
+                    <button
+                        class="border border-primary text-primary px-10 py-4 font-label-md text-label-md font-bold hover:bg-primary hover:text-background transition-all">CONTACT
+                        SALES</button>
+                </div>
+                <div class="mt-12 md:mt-0 relative z-10 grid grid-cols-2 gap-4">
+                    <div class="w-20 h-20 glass-card rounded-lg flex items-center justify-center"><span
+                            class="material-symbols-outlined text-primary">corporate_fare</span></div>
+                    <div class="w-20 h-20 glass-card rounded-lg flex items-center justify-center"><span
+                            class="material-symbols-outlined text-primary">groups</span></div>
+                    <div class="w-20 h-20 glass-card rounded-lg flex items-center justify-center"><span
+                            class="material-symbols-outlined text-primary">security</span></div>
+                    <div class="w-20 h-20 glass-card rounded-lg flex items-center justify-center"><span
+                            class="material-symbols-outlined text-primary">rocket_launch</span></div>
+                </div>
+            </div>
+        </section>
+        <!-- FAQ Section -->
+        <section class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop mb-32">
+            <h2 class="font-headline-lg text-headline-lg text-center text-primary mb-12">Frequent Questions</h2>
+            <div class="space-y-1">
+                <div class="border-b border-outline-variant/20 py-6 group cursor-pointer">
+                    <div
+                        class="flex justify-between items-center text-primary group-hover:opacity-80 transition-opacity">
+                        <h4 class="font-body-lg text-lg">Worldwide Shipping Times?</h4>
+                        <span class="material-symbols-outlined">add</span>
+                    </div>
+                </div>
+                <div class="border-b border-outline-variant/20 py-6 group cursor-pointer">
+                    <div
+                        class="flex justify-between items-center text-primary group-hover:opacity-80 transition-opacity">
+                        <h4 class="font-body-lg text-lg">Custom Branding for Enterprise?</h4>
+                        <span class="material-symbols-outlined">add</span>
+                    </div>
+                </div>
+                <div class="border-b border-outline-variant/20 py-6 group cursor-pointer">
+                    <div
+                        class="flex justify-between items-center text-primary group-hover:opacity-80 transition-opacity">
+                        <h4 class="font-body-lg text-lg">Device Compatibility?</h4>
+                        <span class="material-symbols-outlined">add</span>
+                    </div>
+                </div>
+                <div class="border-b border-outline-variant/20 py-6 group cursor-pointer">
+                    <div
+                        class="flex justify-between items-center text-primary group-hover:opacity-80 transition-opacity">
+                        <h4 class="font-body-lg text-lg">Privacy and Security?</h4>
+                        <span class="material-symbols-outlined">add</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer CTA -->
+        <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap">
+            <div class="py-24 text-center border-t border-outline-variant/20">
+                <h2 class="font-display-sm text-display-sm text-primary mb-8">A Smarter Way To Connect.</h2>
+                <div class="flex flex-col md:flex-row justify-center gap-6">
+                    <a href="shopcards.html"
+                        class="bg-primary text-background px-12 py-4 font-label-md text-label-md font-bold hover:opacity-90 transition-all">EXPLORE
+                        COLLECTION</a>
+                    <a href="digitalprofile.html"
+                        class="border border-outline text-primary px-12 py-4 font-label-md text-label-md font-bold hover:bg-surface-bright/20 transition-all">VIEW
+                        PROFILES</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer Shell -->
+    <footer class="bg-surface border-t border-outline-variant/10 pt-section-gap pb-12 px-gutter">
+        <div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 mb-32">
+            <div class="md:col-span-4">
+                <div class="font-display-lg text-headline-lg tracking-tight text-primary mb-6">VayuTag</div>
+                <p class="text-on-surface-variant text-body-md max-w-xs mb-8">Premium NFC networking tools designed for
+                    professionals who demand excellence. Elevate your first impression.</p>
+                <div class="flex gap-6 text-on-surface-variant">
+                    <span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">public</span>
+                    <span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">share</span>
+                    <span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">link</span>
+                </div>
+            </div>
+            <div class="md:col-span-2">
+                <h5 class="text-label-md font-bold text-primary mb-8 uppercase tracking-widest">Explore</h5>
+                <ul class="space-y-4 text-on-surface-variant text-label-md">
+                <li><a class="hover:text-primary" href="shopcards.html">Products</a></li>
+                <li><a class="hover:text-primary" href="company.html">Enterprise</a></li>
+                <li><a class="hover:text-primary" href="shopcards.html">Pricing</a></li>
+                <li><a class="hover:text-primary" href="shopcards.html">Compatibility</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-2">
+                <h5 class="text-label-md font-bold text-primary mb-8 uppercase tracking-widest">Resources</h5>
+                <ul class="space-y-4 text-on-surface-variant text-label-md">
+                <li><a class="hover:text-primary" href="contactus.html">Help Center</a></li>
+                <li><a class="hover:text-primary" href="contactus.html">Contact Support</a></li>
+                <li><a class="hover:text-primary" href="#">Blog</a></li>
+                <li><a class="hover:text-primary" href="#">Dashboard</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-4">
+                <div class="glass-card p-8 rounded-2xl border-white/5">
+                    <h5 class="text-label-md font-bold text-primary mb-2">Stay Updated</h5>
+                    <p class="text-sm text-on-surface-variant mb-6">Get the latest news on product drops and new features.</p>
+                    <div class="flex bg-surface-container rounded-lg p-1 border border-outline-variant/20">
+                        <input class="bg-transparent border-none focus:ring-0 flex-1 px-4 text-sm" placeholder="Email address" type="email">
+                        <button class="bg-primary text-on-primary p-2 rounded-md flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center pt-8 border-t border-outline-variant/10 text-label-sm text-on-surface-variant/60">
+            <div class="mb-4 md:mb-0">© 2024 VayuTag. All rights reserved.</div>
+            <div class="italic hidden md:block">Designed for the future of networking.</div>
+            <div class="flex gap-8">
+                <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+                <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+    <div
+        class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 py-3 md:hidden bg-surface-container/60 backdrop-blur-2xl border-t border-outline-variant/10 rounded-t-xl">
+        <a class="flex flex-col items-center justify-center text-on-surface-variant" href="index.html">
+            <span class="material-symbols-outlined">home</span>
+            <span class="font-label-sm text-[10px] mt-1 uppercase tracking-tighter">Home</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-on-surface-variant" href="shopcards.html">
+            <span class="material-symbols-outlined">shopping_bag</span>
+            <span class="font-label-sm text-[10px] mt-1 uppercase tracking-tighter">Store</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-on-surface-variant" href="company.html">
+            <span class="material-symbols-outlined">business_center</span>
+            <span class="font-label-sm text-[10px] mt-1 uppercase tracking-tighter">Solutions</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-primary bg-primary-container/10 rounded-xl px-4 py-1" href="digitalprofile.html">
+            <span class="material-symbols-outlined">badge</span>
+            <span class="font-label-sm text-[10px] mt-1 uppercase tracking-tighter">Profile</span>
+        </a>
+    </div>
+</body>
+
+</html>

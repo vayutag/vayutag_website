@@ -1,0 +1,825 @@
+<html class="dark" lang="en">
+
+<head></head>
+
+<body class="font-body-md text-on-surface">```html
+
+
+
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Inter:wght@400;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-tertiary-container": "#636565",
+                        "on-secondary-container": "#b7b5b4",
+                        "on-tertiary": "#2f3131",
+                        "inverse-primary": "#5d5f5f",
+                        "surface-bright": "#3a3939",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "on-primary-container": "#636565",
+                        "primary": "#ffffff",
+                        "on-primary-fixed": "#1a1c1c",
+                        "inverse-surface": "#e5e2e1",
+                        "primary-container": "#e2e2e2",
+                        "on-error": "#690005",
+                        "surface-variant": "#353434",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface": "#141313",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-background": "#e5e2e1",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-tint": "#c6c6c7",
+                        "inverse-on-surface": "#313030",
+                        "secondary-fixed": "#e5e2e1",
+                        "outline": "#8e9192",
+                        "on-error-container": "#ffdad6",
+                        "surface-dim": "#141313",
+                        "secondary": "#c8c6c5",
+                        "primary-fixed": "#e2e2e2",
+                        "on-primary": "#2f3131",
+                        "on-surface-variant": "#c4c7c8",
+                        "outline-variant": "#444748",
+                        "on-primary-fixed-variant": "#454747",
+                        "surface-container-high": "#2a2a2a",
+                        "tertiary-container": "#e2e2e2",
+                        "on-secondary-fixed-variant": "#474746",
+                        "background": "#141313",
+                        "on-secondary": "#313030",
+                        "surface-container-highest": "#353434",
+                        "on-surface": "#e5e2e1",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "surface-container": "#201f1f",
+                        "secondary-container": "#474746",
+                        "error-container": "#93000a",
+                        "tertiary": "#ffffff",
+                        "surface-container-lowest": "#0e0e0e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "unit": "8px",
+                        "section-gap": "140px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "container-max-width": "1200px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Sora"],
+                        "headline-lg-mobile": ["Sora"],
+                        "display-sm": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "label-sm": ["Sora"],
+                        "body-md": ["Sora"],
+                        "body-lg": ["Sora"],
+                        "headline-lg": ["Sora"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "display-sm": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(17, 17, 17, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url("https://www.transparenttextures.com/patterns/p6-dark.png");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .metallic-glow {
+            box-shadow: 0 0 30px 2px rgba(255, 255, 255, 0.03);
+        }
+
+        .floating-orb {
+            filter: blur(120px);
+            position: absolute;
+            z-index: -1;
+            border-radius: 9999px;
+        }
+
+        .obsidian-prime-gradient {
+            background: radial-gradient(circle at top center, #1a1a1a 0%, #050505 100%);
+        }
+
+        .frosted-white-glow {
+            box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.05);
+        }
+    </style>
+    <!-- TopAppBar -->
+    <header class="fixed top-0 left-0 w-full z-50 backdrop-blur-xl border-b border-outline-variant/20 bg-black/80">
+        <nav class="max-w-[1400px] mx-auto flex justify-between items-center px-10 py-6">
+            <div class="flex w-full items-center justify-between">
+                <!-- Left: Logo -->
+                <div class="flex-none">
+                    <a class="font-display text-2xl font-bold tracking-tight text-white" href="index.html">VayuTag</a>
+                </div>
+
+                <!-- Center: Nav Links -->
+                <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-12">
+                    <a class="text-white hover:opacity-70 transition-opacity font-display font-bold text-xs tracking-widest uppercase border-b border-white pb-1"
+                        href="shopcards.html">SHOP CARD</a>
+                    <a class="text-white hover:opacity-70 transition-opacity font-display font-bold text-xs tracking-widest uppercase"
+                        href="digitalprofile.html">DIGITAL PROFILE</a>
+                    <a class="text-white hover:opacity-70 transition-opacity font-display font-bold text-xs tracking-widest uppercase"
+                        href="company.html">COMPANY</a>
+                    <a class="text-white hover:opacity-70 transition-opacity font-display font-bold text-xs tracking-widest uppercase"
+                        href="contactus.html">CONTACT US</a>
+                </div>
+
+                <!-- Right: Actions -->
+                <div class="flex items-center gap-8">
+                    <a href="cart.html"
+                        class="flex items-center justify-center w-10 h-10 rounded-full bg-white text-black hover:bg-white/90 transition-colors">
+                        <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+                    </a>
+                    <a class="text-white hover:opacity-70 transition-opacity font-display font-bold text-xs tracking-widest"
+                        href="#">LOGIN</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero Section -->
+    <section
+        class="relative min-h-[80vh] flex flex-col items-center justify-center text-center obsidian-prime-gradient pt-32 px-gutter overflow-hidden">
+        <div class="floating-orb w-[600px] h-[600px] bg-primary/5 top-[-10%] left-[-10%]"></div>
+        <div class="floating-orb w-[400px] h-[400px] bg-secondary/5 bottom-0 right-[-5%]"></div>
+        <h1 class="font-display-lg text-display-lg max-w-4xl mx-auto mb-6">Crafted For Modern Networking.</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12">Explore premium NFC
+            products designed to elevate your digital identity with precision engineering and luxury finishes.</p>
+        <div
+            class="w-full max-w-5xl mx-auto aspect-video rounded-xl overflow-hidden relative glass-card metallic-glow border border-white/10">
+            <img alt="Premium Hardware Hero" class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGvB-caoJb_CtZx4_H57hhgF2Hq4gkMbuX2bzScGUXJithhX35lCSZ6tDvXfihvD_DmwL86jjyaXKfVKuFBd1cvm_fzyRv_pymMJv2godRWJI-x6OLCYD1ox8y_FJYTbPa3Qfzrjm6y4bFoGti7l1MGUpulYoTynuc6hn5wEX8T1BWzplRv-cbhVIqHqTZ9UzE9s_fKzEGCqL9cgxRRobHS2C5tI8lcC9nTax_rGz6es1qAHFZsPAzuzNKfFTxb-UdUdW9_d89BoI" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        </div>
+    </section>
+    <!-- Metal Cards Section -->
+    <section class="max-w-[1280px] mx-auto px-gutter py-[140px]">
+        <div class="mb-16">
+            <h2 class="font-display-sm text-display-sm mb-4">Metal Identity Series</h2>
+            <p class="font-body-lg text-on-surface-variant max-w-2xl">Precision-milled aerospace-grade metals for those
+                who command presence in every handshake.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <!-- Matte Black Metal -->
+            <div class="glass-card rounded-xl group transition-all duration-500 hover:border-white/20">
+                <div class="aspect-[16/10] overflow-hidden">
+                    <img alt="Matte Black Metal"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyaPjXecJP4d_y2N5Qiq-Pc3z__vjgHGcUTxxCJFNf4Kd_EL48eK0V-X1p48KzUoC-LaLwBMnfrsApZXvkwItrThifOrLTEZntkCEyAeZb5UOsvp38EfxqFIdOCuusRHFaJ153KxcCuv16S4_XKOCyt_2N3Jm_gIGuv6ZINqhj6eE3zzzpcheYEm7rNTqJweYCtQnzBy0zPHX6fkO__nOy_D5gybBjYFgoIhNW_Bn02MIwqP5yNoYkDtvYLXdIxa1ubDAZDdvdWoA" />
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="font-headline-lg text-headline-lg mb-1">Matte Black Metal</h3>
+                            <p class="text-on-surface-variant">The Obsidian Standard</p>
+                        </div>
+                        <span class="text-2xl font-bold text-primary">$149</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <button onclick="buyNow('Matte Black Metal','$149','https://lh3.googleusercontent.com/aida-public/AB6AXuAyaPjXecJP4d_y2N5Qiq-Pc3z__vjgHGcUTxxCJFNf4Kd_EL48eK0V-X1p48KzUoC-LaLwBMnfrsApZXvkwItrThifOrLTEZntkCEyAeZb5UOsvp38EfxqFIdOCuusRHFaJ153KxcCuv16S4_XKOCyt_2N3Jm_gIGuv6ZINqhj6eE3zzzpcheYEm7rNTqJweYCtQnzBy0zPHX6fkO__nOy_D5gybBjYFgoIhNW_Bn02MIwqP5yNoYkDtvYLXdIxa1ubDAZDdvdWoA')"
+                            class="flex-1 bg-primary text-on-primary py-3 rounded-lg text-label-md font-bold transition-all hover:bg-white/90">Buy Now</button>
+                        <button onclick="addToCart('Matte Black Metal','$149','https://lh3.googleusercontent.com/aida-public/AB6AXuAyaPjXecJP4d_y2N5Qiq-Pc3z__vjgHGcUTxxCJFNf4Kd_EL48eK0V-X1p48KzUoC-LaLwBMnfrsApZXvkwItrThifOrLTEZntkCEyAeZb5UOsvp38EfxqFIdOCuusRHFaJ153KxcCuv16S4_XKOCyt_2N3Jm_gIGuv6ZINqhj6eE3zzzpcheYEm7rNTqJweYCtQnzBy0zPHX6fkO__nOy_D5gybBjYFgoIhNW_Bn02MIwqP5yNoYkDtvYLXdIxa1ubDAZDdvdWoA')"
+                            class="px-6 border border-outline-variant text-on-surface py-3 rounded-lg text-label-md hover:bg-surface-bright transition-all">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Frost Titanium -->
+            <div class="glass-card rounded-xl group transition-all duration-500 hover:border-white/20">
+                <div class="aspect-[16/10] overflow-hidden">
+                    <img alt="Frost Titanium"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCwbZbbNLdreazCAeo5VL15tLXiJJ9VYwqqloftwiBuxGh8jdAWbfkfYjUARjzLRmyr9zzg6gXo10AwMtpussS_YTB9CvdECpHmtAPbp3aHXOaxaCjV_6sCeWLAoyE_vj-T-Dq6tWEwaJ92ZOgRaXET8hWy91H0Wm-fnJi-qJ6TZKC7z_LGnAcDLSRbdT05geHb1jBlfylGpbz9F0vK9ZZG9F8zjk7h80Z7QLj7QNntZdqpITBaq2oRrlOmDeNQWsHXubT44RygL0" />
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="font-headline-lg text-headline-lg mb-1">Frost Titanium</h3>
+                            <p class="text-on-surface-variant">Industrial Elegance</p>
+                        </div>
+                        <span class="text-2xl font-bold text-primary">$179</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <button onclick="buyNow('Frost Titanium','$179','https://lh3.googleusercontent.com/aida-public/AB6AXuBCwbZbbNLdreazCAeo5VL15tLXiJJ9VYwqqloftwiBuxGh8jdAWbfkfYjUARjzLRmyr9zzg6gXo10AwMtpussS_YTB9CvdECpHmtAPbp3aHXOaxaCjV_6sCeWLAoyE_vj-T-Dq6tWEwaJ92ZOgRaXET8hWy91H0Wm-fnJi-qJ6TZKC7z_LGnAcDLSRbdT05geHb1jBlfylGpbz9F0vK9ZZG9F8zjk7h80Z7QLj7QNntZdqpITBaq2oRrlOmDeNQWsHXubT44RygL0')"
+                            class="flex-1 bg-primary text-on-primary py-3 rounded-lg text-label-md font-bold transition-all hover:bg-white/90">Buy Now</button>
+                        <button onclick="addToCart('Frost Titanium','$179','https://lh3.googleusercontent.com/aida-public/AB6AXuBCwbZbbNLdreazCAeo5VL15tLXiJJ9VYwqqloftwiBuxGh8jdAWbfkfYjUARjzLRmyr9zzg6gXo10AwMtpussS_YTB9CvdECpHmtAPbp3aHXOaxaCjV_6sCeWLAoyE_vj-T-Dq6tWEwaJ92ZOgRaXET8hWy91H0Wm-fnJi-qJ6TZKC7z_LGnAcDLSRbdT05geHb1jBlfylGpbz9F0vK9ZZG9F8zjk7h80Z7QLj7QNntZdqpITBaq2oRrlOmDeNQWsHXubT44RygL0')"
+                            class="px-6 border border-outline-variant text-on-surface py-3 rounded-lg text-label-md hover:bg-surface-bright transition-all">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Rose Graphite -->
+            <div class="glass-card rounded-xl group transition-all duration-500 hover:border-white/20">
+                <div class="aspect-[16/10] overflow-hidden">
+                    <img alt="Rose Graphite"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyaPjXecJP4d_y2N5Qiq-Pc3z__vjgHGcUTxxCJFNf4Kd_EL48eK0V-X1p48KzUoC-LaLwBMnfrsApZXvkwItrThifOrLTEZntkCEyAeZb5UOsvp38EfxqFIdOCuusRHFaJ153KxcCuv16S4_XKOCyt_2N3Jm_gIGuv6ZINqhj6eE3zzzpcheYEm7rNTqJweYCtQnzBy0zPHX6fkO__nOy_D5gybBjYFgoIhNW_Bn02MIwqP5yNoYkDtvYLXdIxa1ubDAZDdvdWoA" />
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="font-headline-lg text-headline-lg mb-1">Rose Graphite</h3>
+                            <p class="text-on-surface-variant">Sophisticated Warmth</p>
+                        </div>
+                        <span class="text-2xl font-bold text-primary">$169</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <button onclick="buyNow('Rose Graphite','$169','https://lh3.googleusercontent.com/aida-public/AB6AXuAyaPjXecJP4d_y2N5Qiq-Pc3z__vjgHGcUTxxCJFNf4Kd_EL48eK0V-X1p48KzUoC-LaLwBMnfrsApZXvkwItrThifOrLTEZntkCEyAeZb5UOsvp38EfxqFIdOCuusRHFaJ153KxcCuv16S4_XKOCyt_2N3Jm_gIGuv6ZINqhj6eE3zzzpcheYEm7rNTqJweYCtQnzBy0zPHX6fkO__nOy_D5gybBjYFgoIhNW_Bn02MIwqP5yNoYkDtvYLXdIxa1ubDAZDdvdWoA')"
+                            class="flex-1 bg-primary text-on-primary py-3 rounded-lg text-label-md font-bold transition-all hover:bg-white/90">Buy Now</button>
+                        <button onclick="addToCart('Rose Graphite','$169','https://lh3.googleusercontent.com/aida-public/AB6AXuAyaPjXecJP4d_y2N5Qiq-Pc3z__vjgHGcUTxxCJFNf4Kd_EL48eK0V-X1p48KzUoC-LaLwBMnfrsApZXvkwItrThifOrLTEZntkCEyAeZb5UOsvp38EfxqFIdOCuusRHFaJ153KxcCuv16S4_XKOCyt_2N3Jm_gIGuv6ZINqhj6eE3zzzpcheYEm7rNTqJweYCtQnzBy0zPHX6fkO__nOy_D5gybBjYFgoIhNW_Bn02MIwqP5yNoYkDtvYLXdIxa1ubDAZDdvdWoA')"
+                            class="px-6 border border-outline-variant text-on-surface py-3 rounded-lg text-label-md hover:bg-surface-bright transition-all">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Midnight Chrome -->
+            <div class="glass-card rounded-xl group transition-all duration-500 hover:border-white/20">
+                <div class="aspect-[16/10] overflow-hidden">
+                    <img alt="Midnight Chrome"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCwbZbbNLdreazCAeo5VL15tLXiJJ9VYwqqloftwiBuxGh8jdAWbfkfYjUARjzLRmyr9zzg6gXo10AwMtpussS_YTB9CvdECpHmtAPbp3aHXOaxaCjV_6sCeWLAoyE_vj-T-Dq6tWEwaJ92ZOgRaXET8hWy91H0Wm-fnJi-qJ6TZKC7z_LGnAcDLSRbdT05geHb1jBlfylGpbz9F0vK9ZZG9F8zjk7h80Z7QLj7QNntZdqpITBaq2oRrlOmDeNQWsHXubT44RygL0" />
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="font-headline-lg text-headline-lg mb-1">Midnight Chrome</h3>
+                            <p class="text-on-surface-variant">High-Gloss Depth</p>
+                        </div>
+                        <span class="text-2xl font-bold text-primary">$159</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <button onclick="buyNow('Midnight Chrome','$159','https://lh3.googleusercontent.com/aida-public/AB6AXuBCwbZbbNLdreazCAeo5VL15tLXiJJ9VYwqqloftwiBuxGh8jdAWbfkfYjUARjzLRmyr9zzg6gXo10AwMtpussS_YTB9CvdECpHmtAPbp3aHXOaxaCjV_6sCeWLAoyE_vj-T-Dq6tWEwaJ92ZOgRaXET8hWy91H0Wm-fnJi-qJ6TZKC7z_LGnAcDLSRbdT05geHb1jBlfylGpbz9F0vK9ZZG9F8zjk7h80Z7QLj7QNntZdqpITBaq2oRrlOmDeNQWsHXubT44RygL0')"
+                            class="flex-1 bg-primary text-on-primary py-3 rounded-lg text-label-md font-bold transition-all hover:bg-white/90">Buy Now</button>
+                        <button onclick="addToCart('Midnight Chrome','$159','https://lh3.googleusercontent.com/aida-public/AB6AXuBCwbZbbNLdreazCAeo5VL15tLXiJJ9VYwqqloftwiBuxGh8jdAWbfkfYjUARjzLRmyr9zzg6gXo10AwMtpussS_YTB9CvdECpHmtAPbp3aHXOaxaCjV_6sCeWLAoyE_vj-T-Dq6tWEwaJ92ZOgRaXET8hWy91H0Wm-fnJi-qJ6TZKC7z_LGnAcDLSRbdT05geHb1jBlfylGpbz9F0vK9ZZG9F8zjk7h80Z7QLj7QNntZdqpITBaq2oRrlOmDeNQWsHXubT44RygL0')"
+                            class="px-6 border border-outline-variant text-on-surface py-3 rounded-lg text-label-md hover:bg-surface-bright transition-all">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Carbon Steel -->
+            <div class="glass-card rounded-xl group transition-all duration-500 hover:border-white/20">
+                <div class="aspect-[16/10] overflow-hidden">
+                    <img alt="Carbon Steel"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyaPjXecJP4d_y2N5Qiq-Pc3z__vjgHGcUTxxCJFNf4Kd_EL48eK0V-X1p48KzUoC-LaLwBMnfrsApZXvkwItrThifOrLTEZntkCEyAeZb5UOsvp38EfxqFIdOCuusRHFaJ153KxcCuv16S4_XKOCyt_2N3Jm_gIGuv6ZINqhj6eE3zzzpcheYEm7rNTqJweYCtQnzBy0zPHX6fkO__nOy_D5gybBjYFgoIhNW_Bn02MIwqP5yNoYkDtvYLXdIxa1ubDAZDdvdWoA" />
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="font-headline-lg text-headline-lg mb-1">Carbon Steel</h3>
+                            <p class="text-on-surface-variant">Unyielding Power</p>
+                        </div>
+                        <span class="text-2xl font-bold text-primary">$189</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <button onclick="buyNow('Carbon Steel','$189','https://lh3.googleusercontent.com/aida-public/AB6AXuAyaPjXecJP4d_y2N5Qiq-Pc3z__vjgHGcUTxxCJFNf4Kd_EL48eK0V-X1p48KzUoC-LaLwBMnfrsApZXvkwItrThifOrLTEZntkCEyAeZb5UOsvp38EfxqFIdOCuusRHFaJ153KxcCuv16S4_XKOCyt_2N3Jm_gIGuv6ZINqhj6eE3zzzpcheYEm7rNTqJweYCtQnzBy0zPHX6fkO__nOy_D5gybBjYFgoIhNW_Bn02MIwqP5yNoYkDtvYLXdIxa1ubDAZDdvdWoA')"
+                            class="flex-1 bg-primary text-on-primary py-3 rounded-lg text-label-md font-bold transition-all hover:bg-white/90">Buy Now</button>
+                        <button onclick="addToCart('Carbon Steel','$189','https://lh3.googleusercontent.com/aida-public/AB6AXuAyaPjXecJP4d_y2N5Qiq-Pc3z__vjgHGcUTxxCJFNf4Kd_EL48eK0V-X1p48KzUoC-LaLwBMnfrsApZXvkwItrThifOrLTEZntkCEyAeZb5UOsvp38EfxqFIdOCuusRHFaJ153KxcCuv16S4_XKOCyt_2N3Jm_gIGuv6ZINqhj6eE3zzzpcheYEm7rNTqJweYCtQnzBy0zPHX6fkO__nOy_D5gybBjYFgoIhNW_Bn02MIwqP5yNoYkDtvYLXdIxa1ubDAZDdvdWoA')"
+                            class="px-6 border border-outline-variant text-on-surface py-3 rounded-lg text-label-md hover:bg-surface-bright transition-all">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Titanium Edge -->
+            <div class="glass-card rounded-xl group transition-all duration-500 hover:border-white/20">
+                <div class="aspect-[16/10] overflow-hidden">
+                    <img alt="Titanium Edge"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCwbZbbNLdreazCAeo5VL15tLXiJJ9VYwqqloftwiBuxGh8jdAWbfkfYjUARjzLRmyr9zzg6gXo10AwMtpussS_YTB9CvdECpHmtAPbp3aHXOaxaCjV_6sCeWLAoyE_vj-T-Dq6tWEwaJ92ZOgRaXET8hWy91H0Wm-fnJi-qJ6TZKC7z_LGnAcDLSRbdT05geHb1jBlfylGpbz9F0vK9ZZG9F8zjk7h80Z7QLj7QNntZdqpITBaq2oRrlOmDeNQWsHXubT44RygL0" />
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="font-headline-lg text-headline-lg mb-1">Titanium Edge</h3>
+                            <p class="text-on-surface-variant">Precision Sculpted</p>
+                        </div>
+                        <span class="text-2xl font-bold text-primary">$199</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <button onclick="buyNow('Titanium Edge','$199','https://lh3.googleusercontent.com/aida-public/AB6AXuBCwbZbbNLdreazCAeo5VL15tLXiJJ9VYwqqloftwiBuxGh8jdAWbfkfYjUARjzLRmyr9zzg6gXo10AwMtpussS_YTB9CvdECpHmtAPbp3aHXOaxaCjV_6sCeWLAoyE_vj-T-Dq6tWEwaJ92ZOgRaXET8hWy91H0Wm-fnJi-qJ6TZKC7z_LGnAcDLSRbdT05geHb1jBlfylGpbz9F0vK9ZZG9F8zjk7h80Z7QLj7QNntZdqpITBaq2oRrlOmDeNQWsHXubT44RygL0')"
+                            class="flex-1 bg-primary text-on-primary py-3 rounded-lg text-label-md font-bold transition-all hover:bg-white/90">Buy Now</button>
+                        <button onclick="addToCart('Titanium Edge','$199','https://lh3.googleusercontent.com/aida-public/AB6AXuBCwbZbbNLdreazCAeo5VL15tLXiJJ9VYwqqloftwiBuxGh8jdAWbfkfYjUARjzLRmyr9zzg6gXo10AwMtpussS_YTB9CvdECpHmtAPbp3aHXOaxaCjV_6sCeWLAoyE_vj-T-Dq6tWEwaJ92ZOgRaXET8hWy91H0Wm-fnJi-qJ6TZKC7z_LGnAcDLSRbdT05geHb1jBlfylGpbz9F0vK9ZZG9F8zjk7h80Z7QLj7QNntZdqpITBaq2oRrlOmDeNQWsHXubT44RygL0')"
+                            class="px-6 border border-outline-variant text-on-surface py-3 rounded-lg text-label-md hover:bg-surface-bright transition-all">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- PVC Section -->
+    <section class="max-w-[1280px] mx-auto px-gutter py-[140px]">
+        <div class="mb-16 text-center">
+            <h2 class="font-display-sm text-display-sm mb-4">Fully Customized PVC Cards</h2>
+            <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto">Minimal, versatile, and fully personalized
+                NFC cards crafted for modern professionals and businesses.</p>
+        </div>
+        <!-- 2x2 Featured Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <!-- Matte White PVC -->
+            <div
+                class="glass-card rounded-2xl group transition-all duration-500 hover:border-white/30 frosted-white-glow">
+                <div class="aspect-[16/9] overflow-hidden bg-surface-container relative">
+                    <img alt="Matte White PVC"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBbOcslBzKGjdenmPUR1qejd3qJBHhjimNJGBqwrZA4_PcNXSgo1AS63Cn_fmJrhB-iB6s4lSXDZ_hSGpRvSUgufRgHdNqhHv2E4RzknCRyP4xyHmMItU_0VjQVJzeQCiEdShVSH5CB_UkngN_qRPxm4emm04SyRXv6d8zagHYjF_nuimmt13wUi0ReFaZHYM15Q36G_PV1KauwBUNvraOZ-G1V0J-bVc9LSmIswMDvVSKFtnbOgPVxpf_i46u8IMchWILaaZE1g8" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                </div>
+                <div class="p-10">
+                    <h3 class="font-headline-lg text-headline-lg mb-3">Matte White PVC</h3>
+                    <p class="text-on-surface-variant mb-6 font-body-md">Pristine white finish with a luxury eggshell
+                        texture. Features high-durability polymer core and scratch-resistant surface.</p>
+                    <ul class="space-y-3 mb-8 text-sm text-on-surface-variant/80">
+                        <li class="flex items-center gap-2"><span
+                                class="material-symbols-outlined text-[18px]">check_circle</span> Anti-Fingerprint
+                            Texture</li>
+                        <li class="flex items-center gap-2"><span
+                                class="material-symbols-outlined text-[18px]">check_circle</span> 0.8mm Premium
+                            Thickness</li>
+                    </ul>
+                    <div class="flex items-center justify-between gap-4">
+                        <span class="text-2xl font-bold text-primary">$49</span>
+                        <div class="flex gap-3">
+                            <button onclick="buyNow('Matte White PVC','$49','https://lh3.googleusercontent.com/aida-public/AB6AXuCBbOcslBzKGjdenmPUR1qejd3qJBHhjimNJGBqwrZA4_PcNXSgo1AS63Cn_fmJrhB-iB6s4lSXDZ_hSGpRvSUgufRgHdNqhHv2E4RzknCRyP4xyHmMItU_0VjQVJzeQCiEdShVSH5CB_UkngN_qRPxm4emm04SyRXv6d8zagHYjF_nuimmt13wUi0ReFaZHYM15Q36G_PV1KauwBUNvraOZ-G1V0J-bVc9LSmIswMDvVSKFtnbOgPVxpf_i46u8IMchWILaaZE1g8')"
+                                class="bg-primary text-on-primary px-8 py-3 rounded-full text-label-md font-bold hover:scale-[0.98] transition-all">Buy Now</button>
+                            <button onclick="addToCart('Matte White PVC','$49','https://lh3.googleusercontent.com/aida-public/AB6AXuCBbOcslBzKGjdenmPUR1qejd3qJBHhjimNJGBqwrZA4_PcNXSgo1AS63Cn_fmJrhB-iB6s4lSXDZ_hSGpRvSUgufRgHdNqhHv2E4RzknCRyP4xyHmMItU_0VjQVJzeQCiEdShVSH5CB_UkngN_qRPxm4emm04SyRXv6d8zagHYjF_nuimmt13wUi0ReFaZHYM15Q36G_PV1KauwBUNvraOZ-G1V0J-bVc9LSmIswMDvVSKFtnbOgPVxpf_i46u8IMchWILaaZE1g8')"
+                                class="border border-outline-variant text-on-surface px-6 py-3 rounded-full text-label-md hover:bg-surface-bright transition-all">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Frost Black PVC -->
+            <div
+                class="glass-card rounded-2xl group transition-all duration-500 hover:border-white/30 frosted-white-glow">
+                <div class="aspect-[16/9] overflow-hidden bg-surface-container relative">
+                    <img alt="Frost Black PVC"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyaPjXecJP4d_y2N5Qiq-Pc3z__vjgHGcUTxxCJFNf4Kd_EL48eK0V-X1p48KzUoC-LaLwBMnfrsApZXvkwItrThifOrLTEZntkCEyAeZb5UOsvp38EfxqFIdOCuusRHFaJ153KxcCuv16S4_XKOCyt_2N3Jm_gIGuv6ZINqhj6eE3zzzpcheYEm7rNTqJweYCtQnzBy0zPHX6fkO__nOy_D5gybBjYFgoIhNW_Bn02MIwqP5yNoYkDtvYLXdIxa1ubDAZDdvdWoA" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                </div>
+                <div class="p-10">
+                    <h3 class="font-headline-lg text-headline-lg mb-3">Frost Black PVC</h3>
+                    <p class="text-on-surface-variant mb-6 font-body-md">Sophisticated matte black with subtle depth.
+                        Crafted for modern aesthetics and extreme durability.</p>
+                    <ul class="space-y-3 mb-8 text-sm text-on-surface-variant/80">
+                        <li class="flex items-center gap-2"><span
+                                class="material-symbols-outlined text-[18px]">check_circle</span> Deep Carbon Finish
+                        </li>
+                        <li class="flex items-center gap-2"><span
+                                class="material-symbols-outlined text-[18px]">check_circle</span> Impact Resistant
+                            Polymer</li>
+                    </ul>
+                    <div class="flex items-center justify-between gap-4">
+                        <span class="text-2xl font-bold text-primary">$55</span>
+                        <div class="flex gap-3">
+                            <button onclick="buyNow('Frost Black PVC','$55','https://lh3.googleusercontent.com/aida-public/AB6AXuAyaPjXecJP4d_y2N5Qiq-Pc3z__vjgHGcUTxxCJFNf4Kd_EL48eK0V-X1p48KzUoC-LaLwBMnfrsApZXvkwItrThifOrLTEZntkCEyAeZb5UOsvp38EfxqFIdOCuusRHFaJ153KxcCuv16S4_XKOCyt_2N3Jm_gIGuv6ZINqhj6eE3zzzpcheYEm7rNTqJweYCtQnzBy0zPHX6fkO__nOy_D5gybBjYFgoIhNW_Bn02MIwqP5yNoYkDtvYLXdIxa1ubDAZDdvdWoA')"
+                                class="bg-primary text-on-primary px-8 py-3 rounded-full text-label-md font-bold hover:scale-[0.98] transition-all">Buy Now</button>
+                            <button onclick="addToCart('Frost Black PVC','$55','https://lh3.googleusercontent.com/aida-public/AB6AXuAyaPjXecJP4d_y2N5Qiq-Pc3z__vjgHGcUTxxCJFNf4Kd_EL48eK0V-X1p48KzUoC-LaLwBMnfrsApZXvkwItrThifOrLTEZntkCEyAeZb5UOsvp38EfxqFIdOCuusRHFaJ153KxcCuv16S4_XKOCyt_2N3Jm_gIGuv6ZINqhj6eE3zzzpcheYEm7rNTqJweYCtQnzBy0zPHX6fkO__nOy_D5gybBjYFgoIhNW_Bn02MIwqP5yNoYkDtvYLXdIxa1ubDAZDdvdWoA')"
+                                class="border border-outline-variant text-on-surface px-6 py-3 rounded-full text-label-md hover:bg-surface-bright transition-all">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Transparent PVC -->
+            <div
+                class="glass-card rounded-2xl group transition-all duration-500 hover:border-white/30 frosted-white-glow">
+                <div class="aspect-[16/9] overflow-hidden bg-surface-container relative">
+                    <img alt="Transparent PVC"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3Y0wor_azYnsOcFL36ZzT7c8dyGiGFfOeU9jw0xnotjRM45IriHI7YWt61B0zgNt7l-PcGR5z0XPEGCt4dFYwLdQC-QgML7z0-gdvAEr0pbL3DFgnT8sDTWYFNcsP8yndC1ktWbDAwR7x74GOgKI9r3ptylNYhktXb-137euWNAd_Hz-CBGmY9KBtMw9V3x1o4pWQCyDULy7QBLHRpkq41Z1MjE1r-BvAoysWwHFs0W46rH6ovzkWMosjYAHPlpNlbhONAn8k2Ag" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                </div>
+                <div class="p-10">
+                    <h3 class="font-headline-lg text-headline-lg mb-3">Transparent PVC</h3>
+                    <p class="text-on-surface-variant mb-6 font-body-md">Futuristic clear design showcasing internal
+                        circuitry or minimalist branding. See-through tech elegance.</p>
+                    <ul class="space-y-3 mb-8 text-sm text-on-surface-variant/80">
+                        <li class="flex items-center gap-2"><span
+                                class="material-symbols-outlined text-[18px]">check_circle</span> Crystal Clear Optics
+                        </li>
+                        <li class="flex items-center gap-2"><span
+                                class="material-symbols-outlined text-[18px]">check_circle</span> UV Protected Core</li>
+                    </ul>
+                    <div class="flex items-center justify-between gap-4">
+                        <span class="text-2xl font-bold text-primary">$69</span>
+                        <div class="flex gap-3">
+                            <button onclick="buyNow('Transparent PVC','$69')" class="bg-primary text-on-primary px-8 py-3 rounded-full text-label-md font-bold hover:scale-[0.98] transition-all">Buy Now</button>
+                            <button onclick="addToCart('Transparent PVC','$69')" class="border border-outline-variant text-on-surface px-6 py-3 rounded-full text-label-md hover:bg-surface-bright transition-all">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Soft Touch PVC -->
+            <div
+                class="glass-card rounded-2xl group transition-all duration-500 hover:border-white/30 frosted-white-glow">
+                <div class="aspect-[16/9] overflow-hidden bg-surface-container relative">
+                    <img alt="Soft Touch PVC"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdwWi4BBqbP4MzPn1GjfYetUh-yLtvnuqXonK5pqvY76l5w3TMZwA5SWMMEwlFYNzVcgztFeRLfCCYurVTB8vt0FZOu4nJ8BDhmupg0oIvRxMigm2eXE5uTjbku49A2C4XRubOYluPSbSfDSioqudjt_vnlShm5_AZsusr-bG-l7sy_vYFfWLnvsfm5FrrTzK9tFAy4V0pziBlwWOzSyVGYUp1ngsPA-YqvV-va177deGLHyLZEU5uhgymEdSF3WOTPa-fXg07lpE" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                </div>
+                <div class="p-10">
+                    <h3 class="font-headline-lg text-headline-lg mb-3">Soft Touch PVC</h3>
+                    <p class="text-on-surface-variant mb-6 font-body-md">Velvet-like finish for a premium tactile
+                        experience. Luxury feeling meets digital functionality.</p>
+                    <ul class="space-y-3 mb-8 text-sm text-on-surface-variant/80">
+                        <li class="flex items-center gap-2"><span
+                                class="material-symbols-outlined text-[18px]">check_circle</span> Velvet Matte Coating
+                        </li>
+                        <li class="flex items-center gap-2"><span
+                                class="material-symbols-outlined text-[18px]">check_circle</span> Ultra-Slim Profile
+                        </li>
+                    </ul>
+                    <div class="flex items-center justify-between gap-4">
+                        <span class="text-2xl font-bold text-primary">$59</span>
+                        <div class="flex gap-3">
+                            <button onclick="buyNow('Soft Touch PVC','$59')" class="bg-primary text-on-primary px-8 py-3 rounded-full text-label-md font-bold hover:scale-[0.98] transition-all">Buy Now</button>
+                            <button onclick="addToCart('Soft Touch PVC','$59')" class="border border-outline-variant text-on-surface px-6 py-3 rounded-full text-label-md hover:bg-surface-bright transition-all">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 4-Column Compact Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="glass-card rounded-xl p-6 group">
+                <div class="aspect-square rounded-lg overflow-hidden mb-4">
+                    <img alt="Eco PVC" class="w-full h-full object-cover group-hover:scale-110 transition-transform"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdwWi4BBqbP4MzPn1GjfYetUh-yLtvnuqXonK5pqvY76l5w3TMZwA5SWMMEwlFYNzVcgztFeRLfCCYurVTB8vt0FZOu4nJ8BDhmupg0oIvRxMigm2eXE5uTjbku49A2C4XRubOYluPSbSfDSioqudjt_vnlShm5_AZsusr-bG-l7sy_vYFfWLnvsfm5FrrTzK9tFAy4V0pziBlwWOzSyVGYUp1ngsPA-YqvV-va177deGLHyLZEU5uhgymEdSF3WOTPa-fXg07lpE" />
+                </div>
+                <h4 class="text-body-lg font-bold mb-1">Eco Recycled</h4>
+                <p class="text-sm text-on-surface-variant mb-4">Sustainable Polymer</p>
+                <div class="flex justify-between items-center">
+                    <span class="font-bold text-primary">$39</span>
+                    <div class="flex gap-2">
+                        <button onclick="addToCart('Eco Recycled','$39')" class="material-symbols-outlined text-primary hover:text-white transition-colors">shopping_cart</button>
+                        <button onclick="buyNow('Eco Recycled','$39')" class="text-[10px] uppercase tracking-tighter bg-primary text-on-primary px-2 py-1 rounded font-bold">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-card rounded-xl p-6 group">
+                <div class="aspect-square rounded-lg overflow-hidden mb-4">
+                    <img alt="Glow PVC" class="w-full h-full object-cover group-hover:scale-110 transition-transform"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdwWi4BBqbP4MzPn1GjfYetUh-yLtvnuqXonK5pqvY76l5w3TMZwA5SWMMEwlFYNzVcgztFeRLfCCYurVTB8vt0FZOu4nJ8BDhmupg0oIvRxMigm2eXE5uTjbku49A2C4XRubOYluPSbSfDSioqudjt_vnlShm5_AZsusr-bG-l7sy_vYFfWLnvsfm5FrrTzK9tFAy4V0pziBlwWOzSyVGYUp1ngsPA-YqvV-va177deGLHyLZEU5uhgymEdSF3WOTPa-fXg07lpE" />
+                </div>
+                <h4 class="text-body-lg font-bold mb-1">Glow Edge</h4>
+                <p class="text-sm text-on-surface-variant mb-4">Neon Polymer Edge</p>
+                <div class="flex justify-between items-center">
+                    <span class="font-bold text-primary">$45</span>
+                    <div class="flex gap-2">
+                        <button onclick="addToCart('Glow Edge','$45')" class="material-symbols-outlined text-primary hover:text-white transition-colors">shopping_cart</button>
+                        <button onclick="buyNow('Glow Edge','$45')" class="text-[10px] uppercase tracking-tighter bg-primary text-on-primary px-2 py-1 rounded font-bold">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-card rounded-xl p-6 group">
+                <div class="aspect-square rounded-lg overflow-hidden mb-4">
+                    <img alt="Carbon PVC" class="w-full h-full object-cover group-hover:scale-110 transition-transform"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdwWi4BBqbP4MzPn1GjfYetUh-yLtvnuqXonK5pqvY76l5w3TMZwA5SWMMEwlFYNzVcgztFeRLfCCYurVTB8vt0FZOu4nJ8BDhmupg0oIvRxMigm2eXE5uTjbku49A2C4XRubOYluPSbSfDSioqudjt_vnlShm5_AZsusr-bG-l7sy_vYFfWLnvsfm5FrrTzK9tFAy4V0pziBlwWOzSyVGYUp1ngsPA-YqvV-va177deGLHyLZEU5uhgymEdSF3WOTPa-fXg07lpE" />
+                </div>
+                <h4 class="text-body-lg font-bold mb-1">Carbon Fiber PVC</h4>
+                <p class="text-sm text-on-surface-variant mb-4">High-Strength Weave</p>
+                <div class="flex justify-between items-center">
+                    <span class="font-bold text-primary">$65</span>
+                    <div class="flex gap-2">
+                        <button onclick="addToCart('Carbon Fiber PVC','$65')" class="material-symbols-outlined text-primary hover:text-white transition-colors">shopping_cart</button>
+                        <button onclick="buyNow('Carbon Fiber PVC','$65')" class="text-[10px] uppercase tracking-tighter bg-primary text-on-primary px-2 py-1 rounded font-bold">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-card rounded-xl p-6 group">
+                <div class="aspect-square rounded-lg overflow-hidden mb-4">
+                    <img alt="Gold PVC" class="w-full h-full object-cover group-hover:scale-110 transition-transform"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdwWi4BBqbP4MzPn1GjfYetUh-yLtvnuqXonK5pqvY76l5w3TMZwA5SWMMEwlFYNzVcgztFeRLfCCYurVTB8vt0FZOu4nJ8BDhmupg0oIvRxMigm2eXE5uTjbku49A2C4XRubOYluPSbSfDSioqudjt_vnlShm5_AZsusr-bG-l7sy_vYFfWLnvsfm5FrrTzK9tFAy4V0pziBlwWOzSyVGYUp1ngsPA-YqvV-va177deGLHyLZEU5uhgymEdSF3WOTPa-fXg07lpE" />
+                </div>
+                <h4 class="text-body-lg font-bold mb-1">Gold Foil PVC</h4>
+                <p class="text-sm text-on-surface-variant mb-4">Hot Stamp Finish</p>
+                <div class="flex justify-between items-center">
+                    <span class="font-bold text-primary">$75</span>
+                    <div class="flex gap-2">
+                        <button onclick="addToCart('Gold Foil PVC','$75')" class="material-symbols-outlined text-primary hover:text-white transition-colors">shopping_cart</button>
+                        <button onclick="buyNow('Gold Foil PVC','$75')" class="text-[10px] uppercase tracking-tighter bg-primary text-on-primary px-2 py-1 rounded font-bold">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Smart Standees Section -->
+    <section class="max-w-[1280px] mx-auto px-gutter py-[140px]">
+        <div class="mb-16">
+            <h2 class="font-display-sm text-display-sm mb-4">Smart NFC Standees</h2>
+            <p class="font-body-lg text-on-surface-variant max-w-2xl">Interactive smart displays designed for modern
+                businesses, customer engagement, and seamless digital interactions.</p>
+        </div>
+        <!-- 2x2 Featured Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+            <!-- Restaurant Menu Standee -->
+            <div
+                class="glass-card rounded-2xl group transition-all duration-500 hover:-translate-y-2 border-white/5 bg-gradient-to-br from-white/5 to-transparent">
+                <div class="aspect-video bg-surface-container-low relative overflow-hidden">
+                    <img alt="Restaurant Menu Standee"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlT6lGs3dZyn-xtSjWfaXiA3vh0ohV2l4uTvbFyvItuVyMAU5kKRoBAg9Scs8FXoRgODE1gmslUAZ0ssOwhKhJ-DNZS9M5_GYtD9hkwD9kyOjRaWyKZKqauo2Moa0Cg4cm60bX4ABBwMDJB7Y8Cv1JzuK7SFu816k4PHl73wr4Nn0Ry9BEjEoLQtZQzo519FYPbJLWe6YxqHiETflhg_w_rh9CXcWjCRNsgcWUx0JJs7bGBoUf9SQYPWECk0lL0ZBSsU7KaTSgQ-Q" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                </div>
+                <div class="p-10">
+                    <h3 class="font-headline-lg text-headline-lg mb-3">Restaurant Menu Standee</h3>
+                    <p class="text-on-surface-variant mb-6">Seamless digital menus. Elegant acrylic base with tempered
+                        glass. Waterproof and easy-clean surface for busy environments.</p>
+                    <div class="flex items-center justify-between gap-4">
+                        <span class="text-2xl font-bold text-primary">$189</span>
+                        <div class="flex gap-4">
+                            <button onclick="buyNow('Restaurant Menu Standee','$189')" class="bg-primary text-on-primary px-8 py-3 rounded-lg text-label-md font-bold hover:bg-white/90 transition-all">Buy Now</button>
+                            <button onclick="addToCart('Restaurant Menu Standee','$189')" class="border border-outline-variant text-on-surface px-6 py-3 rounded-lg text-label-md hover:bg-surface-bright transition-all">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Google Review Standee -->
+            <div
+                class="glass-card rounded-2xl group transition-all duration-500 hover:-translate-y-2 border-white/5 bg-gradient-to-br from-white/5 to-transparent">
+                <div class="aspect-video bg-surface-container-low relative overflow-hidden">
+                    <img alt="Google Review Standee"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1BMgPAL8N_QDRzw5WJimS0MOmSz5QI1HW6gCnNxCDwxbpfn-jf5DWjSQO-7DXdYbkZUxsrcshtE3EPsivuX8ZyD-aUzJRxE5BhQ0qlAF4bo3d7cVuvMgzwhJSP1dYekcUyvackA4MFWcwb4Irj4wgqNHjf69jrZuqkLD9yv579r85PO7VCx4d-Alr5miKl0X4ongKXzHwI9wWGxhFBxjWuy3V4lPpH3qwgMFRpZY-HoFipOL-rCg4NYbWkE5UG3NaHrIsUKCewsw" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                </div>
+                <div class="p-10">
+                    <h3 class="font-headline-lg text-headline-lg mb-3">Google Review Standee</h3>
+                    <p class="text-on-surface-variant mb-6">Boost your reputation instantly. Tactile NFC contact point
+                        that directs customers directly to your review page.</p>
+                    <div class="flex items-center justify-between gap-4">
+                        <span class="text-2xl font-bold text-primary">$199</span>
+                        <div class="flex gap-4">
+                            <button onclick="buyNow('Google Review Standee','$199')" class="bg-primary text-on-primary px-8 py-3 rounded-lg text-label-md font-bold hover:bg-white/90 transition-all">Buy Now</button>
+                            <button onclick="addToCart('Google Review Standee','$199')" class="border border-outline-variant text-on-surface px-6 py-3 rounded-lg text-label-md hover:bg-surface-bright transition-all">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Payment Standee -->
+            <div
+                class="glass-card rounded-2xl group transition-all duration-500 hover:-translate-y-2 border-white/5 bg-gradient-to-br from-white/5 to-transparent">
+                <div class="aspect-video bg-surface-container-low relative overflow-hidden">
+                    <img alt="Payment Standee"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlT6lGs3dZyn-xtSjWfaXiA3vh0ohV2l4uTvbFyvItuVyMAU5kKRoBAg9Scs8FXoRgODE1gmslUAZ0ssOwhKhJ-DNZS9M5_GYtD9hkwD9kyOjRaWyKZKqauo2Moa0Cg4cm60bX4ABBwMDJB7Y8Cv1JzuK7SFu816k4PHl73wr4Nn0Ry9BEjEoLQtZQzo519FYPbJLWe6YxqHiETflhg_w_rh9CXcWjCRNsgcWUx0JJs7bGBoUf9SQYPWECk0lL0ZBSsU7KaTSgQ-Q" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                </div>
+                <div class="p-10">
+                    <h3 class="font-headline-lg text-headline-lg mb-3">Payment Standee</h3>
+                    <p class="text-on-surface-variant mb-6">Secure and stylish payment link portal. Premium matte
+                        aluminum frame with reinforced ceramic core.</p>
+                    <div class="flex items-center justify-between gap-4">
+                        <span class="text-2xl font-bold text-primary">$229</span>
+                        <div class="flex gap-4">
+                            <button onclick="buyNow('Payment Standee','$229')" class="bg-primary text-on-primary px-8 py-3 rounded-lg text-label-md font-bold hover:bg-white/90 transition-all">Buy Now</button>
+                            <button onclick="addToCart('Payment Standee','$229')" class="border border-outline-variant text-on-surface px-6 py-3 rounded-lg text-label-md hover:bg-surface-bright transition-all">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Salon Booking Standee -->
+            <div
+                class="glass-card rounded-2xl group transition-all duration-500 hover:-translate-y-2 border-white/5 bg-gradient-to-br from-white/5 to-transparent">
+                <div class="aspect-video bg-surface-container-low relative overflow-hidden">
+                    <img alt="Salon Booking Standee"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd3asw-gKr3cPhNDxTP8mQ5XCgBeDDPe5Rj4ZFbk56mbfsN5RgG9udpodHBBavLPPboLl_uXOcM3H0hLGHUbBMArNxDYGAFvVac3FQtjIX_NW73dsHVGXxSOQBPjWqIG3LIc4f3i2BAiKEM9xAqAKBgM9ShqN3duMU_4uajMzxXWR_VoNp9GC2pTntcEf7pY-SERAB1Z77kxNrzCF5VLk1xsixaSCd-yJ8k1_pgROUVqJ1CkmVezCGE55tq99TwEPMtXHLL7ZD6EA" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                </div>
+                <div class="p-10">
+                    <h3 class="font-headline-lg text-headline-lg mb-3">Salon Booking Standee</h3>
+                    <p class="text-on-surface-variant mb-6">Effortless appointment scheduling. Clean aesthetic with
+                        high-gloss finish and personalized QR/NFC.</p>
+                    <div class="flex items-center justify-between gap-4">
+                        <span class="text-2xl font-bold text-primary">$209</span>
+                        <div class="flex gap-4">
+                            <button onclick="buyNow('Salon Booking Standee','$209')" class="bg-primary text-on-primary px-8 py-3 rounded-lg text-label-md font-bold hover:bg-white/90 transition-all">Buy Now</button>
+                            <button onclick="addToCart('Salon Booking Standee','$209')" class="border border-outline-variant text-on-surface px-6 py-3 rounded-lg text-label-md hover:bg-surface-bright transition-all">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 4-Column Compact Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="glass-card rounded-xl overflow-hidden group">
+                <div class="aspect-square bg-surface-container">
+                    <img alt="Mini Desk" class="w-full h-full object-cover group-hover:scale-110 transition-all"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1BMgPAL8N_QDRzw5WJimS0MOmSz5QI1HW6gCnNxCDwxbpfn-jf5DWjSQO-7DXdYbkZUxsrcshtE3EPsivuX8ZyD-aUzJRxE5BhQ0qlAF4bo3d7cVuvMgzwhJSP1dYekcUyvackA4MFWcwb4Irj4wgqNHjf69jrZuqkLD9yv579r85PO7VCx4d-Alr5miKl0X4ongKXzHwI9wWGxhFBxjWuy3V4lPpH3qwgMFRpZY-HoFipOL-rCg4NYbWkE5UG3NaHrIsUKCewsw" />
+                </div>
+                <div class="p-6">
+                    <h4 class="font-bold mb-1">Mini Desk Stand</h4>
+                    <p class="text-sm text-on-surface-variant mb-4">$129</p>
+                    <div class="flex gap-2">
+                        <button onclick="buyNow('Mini Desk Stand','$129')" class="flex-1 bg-primary text-on-primary py-2 rounded text-[10px] font-bold uppercase tracking-widest hover:bg-white/90">Buy Now</button>
+                        <button onclick="addToCart('Mini Desk Stand','$129')" class="material-symbols-outlined border border-white/20 p-2 rounded text-sm hover:bg-white/5">shopping_cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-card rounded-xl overflow-hidden group">
+                <div class="aspect-square bg-surface-container">
+                    <img alt="Lobby Pillar" class="w-full h-full object-cover group-hover:scale-110 transition-all"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1BMgPAL8N_QDRzw5WJimS0MOmSz5QI1HW6gCnNxCDwxbpfn-jf5DWjSQO-7DXdYbkZUxsrcshtE3EPsivuX8ZyD-aUzJRxE5BhQ0qlAF4bo3d7cVuvMgzwhJSP1dYekcUyvackA4MFWcwb4Irj4wgqNHjf69jrZuqkLD9yv579r85PO7VCx4d-Alr5miKl0X4ongKXzHwI9wWGxhFBxjWuy3V4lPpH3qwgMFRpZY-HoFipOL-rCg4NYbWkE5UG3NaHrIsUKCewsw" />
+                </div>
+                <div class="p-6">
+                    <h4 class="font-bold mb-1">Lobby Pillar</h4>
+                    <p class="text-sm text-on-surface-variant mb-4">$349</p>
+                    <div class="flex gap-2">
+                        <button onclick="buyNow('Lobby Pillar','$349')" class="flex-1 bg-primary text-on-primary py-2 rounded text-[10px] font-bold uppercase tracking-widest hover:bg-white/90">Buy Now</button>
+                        <button onclick="addToCart('Lobby Pillar','$349')" class="material-symbols-outlined border border-white/20 p-2 rounded text-sm hover:bg-white/5">shopping_cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-card rounded-xl overflow-hidden group">
+                <div class="aspect-square bg-surface-container">
+                    <img alt="Check-in Block" class="w-full h-full object-cover group-hover:scale-110 transition-all"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1BMgPAL8N_QDRzw5WJimS0MOmSz5QI1HW6gCnNxCDwxbpfn-jf5DWjSQO-7DXdYbkZUxsrcshtE3EPsivuX8ZyD-aUzJRxE5BhQ0qlAF4bo3d7cVuvMgzwhJSP1dYekcUyvackA4MFWcwb4Irj4wgqNHjf69jrZuqkLD9yv579r85PO7VCx4d-Alr5miKl0X4ongKXzHwI9wWGxhFBxjWuy3V4lPpH3qwgMFRpZY-HoFipOL-rCg4NYbWkE5UG3NaHrIsUKCewsw" />
+                </div>
+                <div class="p-6">
+                    <h4 class="font-bold mb-1">Check-in Block</h4>
+                    <p class="text-sm text-on-surface-variant mb-4">$159</p>
+                    <div class="flex gap-2">
+                        <button onclick="buyNow('Check-in Block','$159')" class="flex-1 bg-primary text-on-primary py-2 rounded text-[10px] font-bold uppercase tracking-widest hover:bg-white/90">Buy Now</button>
+                        <button onclick="addToCart('Check-in Block','$159')" class="material-symbols-outlined border border-white/20 p-2 rounded text-sm hover:bg-white/5">shopping_cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-card rounded-xl overflow-hidden group">
+                <div class="aspect-square bg-surface-container">
+                    <img alt="Artisan Edition" class="w-full h-full object-cover group-hover:scale-110 transition-all"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1BMgPAL8N_QDRzw5WJimS0MOmSz5QI1HW6gCnNxCDwxbpfn-jf5DWjSQO-7DXdYbkZUxsrcshtE3EPsivuX8ZyD-aUzJRxE5BhQ0qlAF4bo3d7cVuvMgzwhJSP1dYekcUyvackA4MFWcwb4Irj4wgqNHjf69jrZuqkLD9yv579r85PO7VCx4d-Alr5miKl0X4ongKXzHwI9wWGxhFBxjWuy3V4lPpH3qwgMFRpZY-HoFipOL-rCg4NYbWkE5UG3NaHrIsUKCewsw" />
+                </div>
+                <div class="p-6">
+                    <h4 class="font-bold mb-1">Artisan Edition</h4>
+                    <p class="text-sm text-on-surface-variant mb-4">$289</p>
+                    <div class="flex gap-2">
+                        <button onclick="buyNow('Artisan Edition','$289')" class="flex-1 bg-primary text-on-primary py-2 rounded text-[10px] font-bold uppercase tracking-widest hover:bg-white/90">Buy Now</button>
+                        <button onclick="addToCart('Artisan Edition','$289')" class="material-symbols-outlined border border-white/20 p-2 rounded text-sm hover:bg-white/5">shopping_cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CTA Section -->
+    <section class="max-w-[1280px] mx-auto px-gutter py-[140px]">
+        <div class="glass-card rounded-3xl p-16 md:p-32 text-center relative overflow-hidden border-white/10">
+            <div class="floating-orb w-[500px] h-[500px] bg-primary/5 top-[-50%] left-[-20%]"></div>
+        </div>
+    </section>
+    <footer class="bg-surface border-t border-outline-variant/10 pt-section-gap pb-12 px-gutter">
+        <div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 mb-32">
+            <div class="md:col-span-4">
+                <div class="font-display-lg text-headline-lg tracking-tight text-primary mb-6">VayuTag</div>
+                <p class="text-on-surface-variant text-body-md max-w-xs mb-8">Premium NFC networking tools designed for
+                    professionals who demand excellence. Elevate your first impression.</p>
+                <div class="flex gap-6 text-on-surface-variant">
+                    <span
+                        class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">public</span>
+                    <span
+                        class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">share</span>
+                    <span
+                        class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">link</span>
+                </div>
+            </div>
+            <div class="md:col-span-2">
+                <h5 class="text-label-md font-bold text-primary mb-8 uppercase tracking-widest">Explore</h5>
+                <ul class="space-y-4 text-on-surface-variant text-label-md">
+                    <li><a class="hover:text-primary" href="shopcards.html">Products</a></li>
+                    <li><a class="hover:text-primary" href="company.html">Enterprise</a></li>
+                    <li><a class="hover:text-primary" href="shopcards.html">Pricing</a></li>
+                    <li><a class="hover:text-primary" href="shopcards.html">Compatibility</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-2">
+                <h5 class="text-label-md font-bold text-primary mb-8 uppercase tracking-widest">Resources</h5>
+                <ul class="space-y-4 text-on-surface-variant text-label-md">
+                    <li><a class="hover:text-primary" href="contactus.html">Help Center</a></li>
+                    <li><a class="hover:text-primary" href="contactus.html">Contact Support</a></li>
+                    <li><a class="hover:text-primary" href="#">Blog</a></li>
+                    <li><a class="hover:text-primary" href="#">Dashboard</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-4">
+                <div class="glass-card p-8 rounded-2xl border-white/5">
+                    <h5 class="text-label-md font-bold text-primary mb-2">Stay Updated</h5>
+                    <p class="text-sm text-on-surface-variant mb-6">Get the latest news on product drops and new
+                        features.</p>
+                    <div class="flex bg-surface-container rounded-lg p-1 border border-outline-variant/20">
+                        <input class="bg-transparent border-none focus:ring-0 flex-1 px-4 text-sm"
+                            placeholder="Email address" type="email" />
+                        <button class="bg-primary text-on-primary p-2 rounded-md flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center pt-8 border-t border-outline-variant/10 text-label-sm text-on-surface-variant/60">
+            <div class="mb-4 md:mb-0">© 2024 VayuTag. All rights reserved.</div>
+            <div class="italic hidden md:block">Designed for the future of networking.</div>
+            <div class="flex gap-8">
+                <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+                <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="cart-toast" style="display:none;position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#fff;color:#000;padding:12px 24px;border-radius:50px;font-weight:700;font-size:13px;letter-spacing:0.05em;z-index:9999;box-shadow:0 8px 32px rgba(0,0,0,0.4);transition:all 0.3s;">Added to cart</div>
+
+    <script>
+    const IMG = {
+      'Matte Black Metal':'https://lh3.googleusercontent.com/aida-public/AB6AXuAyaPjXecJP4d_y2N5Qiq-Pc3z__vjgHGcUTxxCJFNf4Kd_EL48eK0V-X1p48KzUoC-LaLwBMnfrsApZXvkwItrThifOrLTEZntkCEyAeZb5UOsvp38EfxqFIdOCuusRHFaJ153KxcCuv16S4_XKOCyt_2N3Jm_gIGuv6ZINqhj6eE3zzzpcheYEm7rNTqJweYCtQnzBy0zPHX6fkO__nOy_D5gybBjYFgoIhNW_Bn02MIwqP5yNoYkDtvYLXdIxa1ubDAZDdvdWoA',
+      'Frost Titanium':'https://lh3.googleusercontent.com/aida-public/AB6AXuBCwbZbbNLdreazCAeo5VL15tLXiJJ9VYwqqloftwiBuxGh8jdAWbfkfYjUARjzLRmyr9zzg6gXo10AwMtpussS_YTB9CvdECpHmtAPbp3aHXOaxaCjV_6sCeWLAoyE_vj-T-Dq6tWEwaJ92ZOgRaXET8hWy91H0Wm-fnJi-qJ6TZKC7z_LGnAcDLSRbdT05geHb1jBlfylGpbz9F0vK9ZZG9F8zjk7h80Z7QLj7QNntZdqpITBaq2oRrlOmDeNQWsHXubT44RygL0',
+      'Rose Graphite':'https://lh3.googleusercontent.com/aida-public/AB6AXuAyaPjXecJP4d_y2N5Qiq-Pc3z__vjgHGcUTxxCJFNf4Kd_EL48eK0V-X1p48KzUoC-LaLwBMnfrsApZXvkwItrThifOrLTEZntkCEyAeZb5UOsvp38EfxqFIdOCuusRHFaJ153KxcCuv16S4_XKOCyt_2N3Jm_gIGuv6ZINqhj6eE3zzzpcheYEm7rNTqJweYCtQnzBy0zPHX6fkO__nOy_D5gybBjYFgoIhNW_Bn02MIwqP5yNoYkDtvYLXdIxa1ubDAZDdvdWoA',
+      'Midnight Chrome':'https://lh3.googleusercontent.com/aida-public/AB6AXuBCwbZbbNLdreazCAeo5VL15tLXiJJ9VYwqqloftwiBuxGh8jdAWbfkfYjUARjzLRmyr9zzg6gXo10AwMtpussS_YTB9CvdECpHmtAPbp3aHXOaxaCjV_6sCeWLAoyE_vj-T-Dq6tWEwaJ92ZOgRaXET8hWy91H0Wm-fnJi-qJ6TZKC7z_LGnAcDLSRbdT05geHb1jBlfylGpbz9F0vK9ZZG9F8zjk7h80Z7QLj7QNntZdqpITBaq2oRrlOmDeNQWsHXubT44RygL0',
+      'Carbon Steel':'https://lh3.googleusercontent.com/aida-public/AB6AXuAyaPjXecJP4d_y2N5Qiq-Pc3z__vjgHGcUTxxCJFNf4Kd_EL48eK0V-X1p48KzUoC-LaLwBMnfrsApZXvkwItrThifOrLTEZntkCEyAeZb5UOsvp38EfxqFIdOCuusRHFaJ153KxcCuv16S4_XKOCyt_2N3Jm_gIGuv6ZINqhj6eE3zzzpcheYEm7rNTqJweYCtQnzBy0zPHX6fkO__nOy_D5gybBjYFgoIhNW_Bn02MIwqP5yNoYkDtvYLXdIxa1ubDAZDdvdWoA',
+      'Titanium Edge':'https://lh3.googleusercontent.com/aida-public/AB6AXuBCwbZbbNLdreazCAeo5VL15tLXiJJ9VYwqqloftwiBuxGh8jdAWbfkfYjUARjzLRmyr9zzg6gXo10AwMtpussS_YTB9CvdECpHmtAPbp3aHXOaxaCjV_6sCeWLAoyE_vj-T-Dq6tWEwaJ92ZOgRaXET8hWy91H0Wm-fnJi-qJ6TZKC7z_LGnAcDLSRbdT05geHb1jBlfylGpbz9F0vK9ZZG9F8zjk7h80Z7QLj7QNntZdqpITBaq2oRrlOmDeNQWsHXubT44RygL0',
+      'Matte White PVC':'https://lh3.googleusercontent.com/aida-public/AB6AXuCBbOcslBzKGjdenmPUR1qejd3qJBHhjimNJGBqwrZA4_PcNXSgo1AS63Cn_fmJrhB-iB6s4lSXDZ_hSGpRvSUgufRgHdNqhHv2E4RzknCRyP4xyHmMItU_0VjQVJzeQCiEdShVSH5CB_UkngN_qRPxm4emm04SyRXv6d8zagHYjF_nuimmt13wUi0ReFaZHYM15Q36G_PV1KauwBUNvraOZ-G1V0J-bVc9LSmIswMDvVSKFtnbOgPVxpf_i46u8IMchWILaaZE1g8',
+      'Frost Black PVC':'https://lh3.googleusercontent.com/aida-public/AB6AXuAyaPjXecJP4d_y2N5Qiq-Pc3z__vjgHGcUTxxCJFNf4Kd_EL48eK0V-X1p48KzUoC-LaLwBMnfrsApZXvkwItrThifOrLTEZntkCEyAeZb5UOsvp38EfxqFIdOCuusRHFaJ153KxcCuv16S4_XKOCyt_2N3Jm_gIGuv6ZINqhj6eE3zzzpcheYEm7rNTqJweYCtQnzBy0zPHX6fkO__nOy_D5gybBjYFgoIhNW_Bn02MIwqP5yNoYkDtvYLXdIxa1ubDAZDdvdWoA',
+      'Transparent PVC':'https://lh3.googleusercontent.com/aida-public/AB6AXuD3Y0wor_azYnsOcFL36ZzT7c8dyGiGFfOeU9jw0xnotjRM45IriHI7YWt61B0zgNt7l-PcGR5z0XPEGCt4dFYwLdQC-QgML7z0-gdvAEr0pbL3DFgnT8sDTWYFNcsP8yndC1ktWbDAwR7x74GOgKI9r3ptylNYhktXb-137euWNAd_Hz-CBGmY9KBtMw9V3x1o4pWQCyDULy7QBLHRpkq41Z1MjE1r-BvAoysWwHFs0W46rH6ovzkWMosjYAHPlpNlbhONAn8k2Ag',
+      'Soft Touch PVC':'https://lh3.googleusercontent.com/aida-public/AB6AXuDdwWi4BBqbP4MzPn1GjfYetUh-yLtvnuqXonK5pqvY76l5w3TMZwA5SWMMEwlFYNzVcgztFeRLfCCYurVTB8vt0FZOu4nJ8BDhmupg0oIvRxMigm2eXE5uTjbku49A2C4XRubOYluPSbSfDSioqudjt_vnlShm5_AZsusr-bG-l7sy_vYFfWLnvsfm5FrrTzK9tFAy4V0pziBlwWOzSyVGYUp1ngsPA-YqvV-va177deGLHyLZEU5uhgymEdSF3WOTPa-fXg07lpE',
+      'Eco Recycled':'https://lh3.googleusercontent.com/aida-public/AB6AXuDdwWi4BBqbP4MzPn1GjfYetUh-yLtvnuqXonK5pqvY76l5w3TMZwA5SWMMEwlFYNzVcgztFeRLfCCYurVTB8vt0FZOu4nJ8BDhmupg0oIvRxMigm2eXE5uTjbku49A2C4XRubOYluPSbSfDSioqudjt_vnlShm5_AZsusr-bG-l7sy_vYFfWLnvsfm5FrrTzK9tFAy4V0pziBlwWOzSyVGYUp1ngsPA-YqvV-va177deGLHyLZEU5uhgymEdSF3WOTPa-fXg07lpE',
+      'Glow Edge':'https://lh3.googleusercontent.com/aida-public/AB6AXuDdwWi4BBqbP4MzPn1GjfYetUh-yLtvnuqXonK5pqvY76l5w3TMZwA5SWMMEwlFYNzVcgztFeRLfCCYurVTB8vt0FZOu4nJ8BDhmupg0oIvRxMigm2eXE5uTjbku49A2C4XRubOYluPSbSfDSioqudjt_vnlShm5_AZsusr-bG-l7sy_vYFfWLnvsfm5FrrTzK9tFAy4V0pziBlwWOzSyVGYUp1ngsPA-YqvV-va177deGLHyLZEU5uhgymEdSF3WOTPa-fXg07lpE',
+      'Carbon Fiber PVC':'https://lh3.googleusercontent.com/aida-public/AB6AXuDdwWi4BBqbP4MzPn1GjfYetUh-yLtvnuqXonK5pqvY76l5w3TMZwA5SWMMEwlFYNzVcgztFeRLfCCYurVTB8vt0FZOu4nJ8BDhmupg0oIvRxMigm2eXE5uTjbku49A2C4XRubOYluPSbSfDSioqudjt_vnlShm5_AZsusr-bG-l7sy_vYFfWLnvsfm5FrrTzK9tFAy4V0pziBlwWOzSyVGYUp1ngsPA-YqvV-va177deGLHyLZEU5uhgymEdSF3WOTPa-fXg07lpE',
+      'Gold Foil PVC':'https://lh3.googleusercontent.com/aida-public/AB6AXuDdwWi4BBqbP4MzPn1GjfYetUh-yLtvnuqXonK5pqvY76l5w3TMZwA5SWMMEwlFYNzVcgztFeRLfCCYurVTB8vt0FZOu4nJ8BDhmupg0oIvRxMigm2eXE5uTjbku49A2C4XRubOYluPSbSfDSioqudjt_vnlShm5_AZsusr-bG-l7sy_vYFfWLnvsfm5FrrTzK9tFAy4V0pziBlwWOzSyVGYUp1ngsPA-YqvV-va177deGLHyLZEU5uhgymEdSF3WOTPa-fXg07lpE',
+      'Restaurant Menu Standee':'https://lh3.googleusercontent.com/aida-public/AB6AXuAlT6lGs3dZyn-xtSjWfaXiA3vh0ohV2l4uTvbFyvItuVyMAU5kKRoBAg9Scs8FXoRgODE1gmslUAZ0ssOwhKhJ-DNZS9M5_GYtD9hkwD9kyOjRaWyKZKqauo2Moa0Cg4cm60bX4ABBwMDJB7Y8Cv1JzuK7SFu816k4PHl73wr4Nn0Ry9BEjEoLQtZQzo519FYPbJLWe6YxqHiETflhg_w_rh9CXcWjCRNsgcWUx0JJs7bGBoUf9SQYPWECk0lL0ZBSsU7KaTSgQ-Q',
+      'Google Review Standee':'https://lh3.googleusercontent.com/aida-public/AB6AXuB1BMgPAL8N_QDRzw5WJimS0MOmSz5QI1HW6gCnNxCDwxbpfn-jf5DWjSQO-7DXdYbkZUxsrcshtE3EPsivuX8ZyD-aUzJRxE5BhQ0qlAF4bo3d7cVuvMgzwhJSP1dYekcUyvackA4MFWcwb4Irj4wgqNHjf69jrZuqkLD9yv579r85PO7VCx4d-Alr5miKl0X4ongKXzHwI9wWGxhFBxjWuy3V4lPpH3qwgMFRpZY-HoFipOL-rCg4NYbWkE5UG3NaHrIsUKCewsw',
+      'Payment Standee':'https://lh3.googleusercontent.com/aida-public/AB6AXuAlT6lGs3dZyn-xtSjWfaXiA3vh0ohV2l4uTvbFyvItuVyMAU5kKRoBAg9Scs8FXoRgODE1gmslUAZ0ssOwhKhJ-DNZS9M5_GYtD9hkwD9kyOjRaWyKZKqauo2Moa0Cg4cm60bX4ABBwMDJB7Y8Cv1JzuK7SFu816k4PHl73wr4Nn0Ry9BEjEoLQtZQzo519FYPbJLWe6YxqHiETflhg_w_rh9CXcWjCRNsgcWUx0JJs7bGBoUf9SQYPWECk0lL0ZBSsU7KaTSgQ-Q',
+      'Salon Booking Standee':'https://lh3.googleusercontent.com/aida-public/AB6AXuDd3asw-gKr3cPhNDxTP8mQ5XCgBeDDPe5Rj4ZFbk56mbfsN5RgG9udpodHBBavLPPboLl_uXOcM3H0hLGHUbBMArNxDYGAFvVac3FQtjIX_NW73dsHVGXxSOQBPjWqIG3LIc4f3i2BAiKEM9xAqAKBgM9ShqN3duMU_4uajMzxXWR_VoNp9GC2pTntcEf7pY-SERAB1Z77kxNrzCF5VLk1xsixaSCd-yJ8k1_pgROUVqJ1CkmVezCGE55tq99TwEPMtXHLL7ZD6EA',
+      'Mini Desk Stand':'https://lh3.googleusercontent.com/aida-public/AB6AXuB1BMgPAL8N_QDRzw5WJimS0MOmSz5QI1HW6gCnNxCDwxbpfn-jf5DWjSQO-7DXdYbkZUxsrcshtE3EPsivuX8ZyD-aUzJRxE5BhQ0qlAF4bo3d7cVuvMgzwhJSP1dYekcUyvackA4MFWcwb4Irj4wgqNHjf69jrZuqkLD9yv579r85PO7VCx4d-Alr5miKl0X4ongKXzHwI9wWGxhFBxjWuy3V4lPpH3qwgMFRpZY-HoFipOL-rCg4NYbWkE5UG3NaHrIsUKCewsw',
+      'Lobby Pillar':'https://lh3.googleusercontent.com/aida-public/AB6AXuB1BMgPAL8N_QDRzw5WJimS0MOmSz5QI1HW6gCnNxCDwxbpfn-jf5DWjSQO-7DXdYbkZUxsrcshtE3EPsivuX8ZyD-aUzJRxE5BhQ0qlAF4bo3d7cVuvMgzwhJSP1dYekcUyvackA4MFWcwb4Irj4wgqNHjf69jrZuqkLD9yv579r85PO7VCx4d-Alr5miKl0X4ongKXzHwI9wWGxhFBxjWuy3V4lPpH3qwgMFRpZY-HoFipOL-rCg4NYbWkE5UG3NaHrIsUKCewsw',
+      'Check-in Block':'https://lh3.googleusercontent.com/aida-public/AB6AXuB1BMgPAL8N_QDRzw5WJimS0MOmSz5QI1HW6gCnNxCDwxbpfn-jf5DWjSQO-7DXdYbkZUxsrcshtE3EPsivuX8ZyD-aUzJRxE5BhQ0qlAF4bo3d7cVuvMgzwhJSP1dYekcUyvackA4MFWcwb4Irj4wgqNHjf69jrZuqkLD9yv579r85PO7VCx4d-Alr5miKl0X4ongKXzHwI9wWGxhFBxjWuy3V4lPpH3qwgMFRpZY-HoFipOL-rCg4NYbWkE5UG3NaHrIsUKCewsw',
+      'Artisan Edition':'https://lh3.googleusercontent.com/aida-public/AB6AXuB1BMgPAL8N_QDRzw5WJimS0MOmSz5QI1HW6gCnNxCDwxbpfn-jf5DWjSQO-7DXdYbkZUxsrcshtE3EPsivuX8ZyD-aUzJRxE5BhQ0qlAF4bo3d7cVuvMgzwhJSP1dYekcUyvackA4MFWcwb4Irj4wgqNHjf69jrZuqkLD9yv579r85PO7VCx4d-Alr5miKl0X4ongKXzHwI9wWGxhFBxjWuy3V4lPpH3qwgMFRpZY-HoFipOL-rCg4NYbWkE5UG3NaHrIsUKCewsw'
+    };
+
+    function getCart() { return JSON.parse(localStorage.getItem('vayutag_cart') || '[]'); }
+    function saveCart(cart) { localStorage.setItem('vayutag_cart', JSON.stringify(cart)); }
+
+    function addToCart(name, price) {
+        const img = IMG[name] || '';
+        const cart = getCart();
+        const idx = cart.findIndex(i => i.name === name);
+        if (idx > -1) { cart[idx].qty++; } else { cart.push({ name, price, img, qty: 1 }); }
+        saveCart(cart);
+        showToast('✓  ' + name + ' added to cart');
+    }
+
+    function buyNow(name, price) {
+        addToCart(name, price);
+        window.location.href = 'cart.html';
+    }
+
+    function showToast(msg) {
+        const t = document.getElementById('cart-toast');
+        t.textContent = msg;
+        t.style.display = 'block';
+        t.style.opacity = '1';
+        setTimeout(() => { t.style.opacity = '0'; setTimeout(() => t.style.display='none', 300); }, 2000);
+    }
+    </script>
+</body>
+
+</html>
